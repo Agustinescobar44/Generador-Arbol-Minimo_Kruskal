@@ -41,4 +41,13 @@ public class GrafoConPesos extends Grafo {
 		return aristas;
 	}
 
+	public Arista dameAristaMaxima() {
+		Arista maxima = aristas.get(0);
+		for (Arista arista : getAristas()) {
+			if (arista.compareTo(maxima)>0) {
+				maxima = arista;
+			}
+		}
+		return maxima;
+	}
 }
