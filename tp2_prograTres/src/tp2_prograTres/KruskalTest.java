@@ -45,7 +45,7 @@ public class KruskalTest {
 	}
 	
 	@Test
-	public void testDameMinimaNoMarcada() {
+	public void testDameMinimaNoConexa() {
 		g = new GrafoConPesos(5);
 		g.setArista(0, 1, 150);
 		g.setArista(1, 2, 200);
