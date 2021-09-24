@@ -18,7 +18,7 @@ public class GrafoConPesos extends Grafo {
 			aristas.add(new Arista(a, b, peso));
 		} else { 
 			for (Arista arista : aristas) {
-				if(arista.getA() == a && arista.getB() == b)
+				if((arista.getA() == b && arista.getB() == a)||(arista.getA() == a && arista.getB() == b))
 					arista.setPeso(peso);
 			}
 		}
