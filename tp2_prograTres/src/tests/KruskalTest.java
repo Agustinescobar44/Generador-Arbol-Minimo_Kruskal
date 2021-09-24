@@ -11,6 +11,7 @@ import org.junit.rules.ExpectedException;
 
 import estructurasDeDatos.Arista;
 import estructurasDeDatos.GrafoConPesos;
+import metodos.GrafoAleatorio;
 import metodos.Kruskal;
 
 public class KruskalTest {
@@ -82,5 +83,7 @@ public class KruskalTest {
 		
 		assertTrue(Kruskal.haceCircuito(g, 0, 2));
 	}
+	
+
 	
 }

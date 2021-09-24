@@ -23,7 +23,6 @@ public class Arista implements Comparable<Arista>{
 		return peso+0;
 	}
 
-	@Override
 	public int compareTo(Arista o) {
 		if(this.peso<o.peso) {
 			return -1;
