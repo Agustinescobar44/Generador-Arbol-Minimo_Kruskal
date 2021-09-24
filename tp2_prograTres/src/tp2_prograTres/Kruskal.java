@@ -27,13 +27,17 @@ public class Kruskal {
 				temp = arista;
 			}
 		}
-		
 		return temp;
 		
 	}
 
 	public void agregarArista(Arista arista) {
 		arbolGenerado.setArista(arista.getA(), arista.getB(), arista.getPeso());;
+	}
+	
+	public void setArista(int a, int b, int peso) {
+		g.setArista(a, b, peso);
+		
 	}
 	
 	
