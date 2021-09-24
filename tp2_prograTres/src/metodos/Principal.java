@@ -1,4 +1,6 @@
-package tp2_prograTres;
+package metodos;
+
+import estructurasDeDatos.Arista;
 
 public class Principal {
 

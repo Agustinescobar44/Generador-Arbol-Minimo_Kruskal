@@ -1,4 +1,6 @@
-package tp2_prograTres;
+package metodos;
+
+import estructurasDeDatos.GrafoConPesos;
 
 public class UnionFind {
 	private int[] Raices;

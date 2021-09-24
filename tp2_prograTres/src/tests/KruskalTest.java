@@ -1,4 +1,4 @@
-package tp2_prograTres;
+package tests;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,10 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import estructurasDeDatos.Arista;
+import estructurasDeDatos.GrafoConPesos;
+import metodos.Kruskal;
 
 public class KruskalTest {
 

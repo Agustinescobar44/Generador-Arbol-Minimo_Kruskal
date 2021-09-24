@@ -1,9 +1,11 @@
-package tp2_prograTres;
+package tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import estructurasDeDatos.Arista;
 
 public class AristaTest {
 

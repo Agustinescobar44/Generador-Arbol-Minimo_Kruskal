@@ -1,4 +1,4 @@
-package tp2_prograTres;
+package estructurasDeDatos;
 
 
 public class Arista implements Comparable<Arista>{

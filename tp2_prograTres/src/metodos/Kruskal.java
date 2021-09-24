@@ -1,6 +1,9 @@
-package tp2_prograTres;
+package metodos;
 
 import java.util.Set;
+
+import estructurasDeDatos.Arista;
+import estructurasDeDatos.GrafoConPesos;
 
 public class Kruskal {
 

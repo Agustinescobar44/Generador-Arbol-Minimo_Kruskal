@@ -1,8 +1,10 @@
-package tp2_prograTres;
+package metodos;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+
+import estructurasDeDatos.Grafo;
 
 
 public class BFS {

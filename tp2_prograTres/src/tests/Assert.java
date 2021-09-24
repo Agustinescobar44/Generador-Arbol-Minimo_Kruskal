@@ -1,9 +1,12 @@
-package tp2_prograTres;
+package tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
+
+import estructurasDeDatos.Arista;
+import estructurasDeDatos.GrafoConPesos;
 
 public class Assert {
 

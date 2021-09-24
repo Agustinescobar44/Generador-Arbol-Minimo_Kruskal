@@ -1,4 +1,4 @@
-package tp2_prograTres;
+package estructurasDeDatos;
 
 import java.util.ArrayList;
 import java.util.HashSet;
