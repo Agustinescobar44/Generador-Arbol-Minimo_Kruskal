@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class KruskalTest {
 
@@ -33,6 +34,14 @@ public class KruskalTest {
 		esperados.add(new Arista(4, 3, 75));
 		
 		Assert.iguales(esperados , Kruskal.kruskal(g));
+	}
+	@Test 
+	public void testKruskalGrafoSinAristas() {
+		
+		g = new GrafoConPesos(5);
+		Set<Arista> esperados = new HashSet<Arista>();
+		
+		Assert.iguales(esperados, g);
 	}
 	
 	@Test

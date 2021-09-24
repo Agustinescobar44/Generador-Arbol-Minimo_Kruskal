@@ -9,6 +9,10 @@ public class Kruskal {
 	// este metodo usa el algoritmo de kruskal con BFS para devolver un arbol de un grafo dado
 	public static GrafoConPesos kruskal(GrafoConPesos g) {
 		
+		if(g.vertices() == 0) {
+			return g;
+		}
+		
 		arbolGenerado = new GrafoConPesos(g.vertices());
 		
 		int i = 0;
@@ -28,9 +32,11 @@ public class Kruskal {
 	public static Arista dameMinimaNoConexa(GrafoConPesos grafo , GrafoConPesos arbol) {
 		Arista temp = grafo.dameAristaMaxima(); //inicio con la primer arista para comparar
 		for (Arista arista : grafo.getAristas()) { //recorro el grafo
-			if(arista.compareTo(temp)<0 && !haceCircuito(arbol, arista.getA(), arista.getB())) {
+			//si la arista es menor a la maxima del grafo y no hace circuito con otra arista del
+			//arbol, la elijo
+			if(arista.compareTo(temp)<0 && !haceCircuito(arbol, arista.getA(), arista.getB())) 
 				temp = arista;
-			}
+			
 		}
 		return temp;
 	}
