@@ -6,6 +6,7 @@ public class Kruskal {
 
 	static GrafoConPesos arbolGenerado ;
 	
+	// este metodo usa el algoritmo de kruskal con BFS para devolver un arbol de un grafo dado
 	public static GrafoConPesos kruskal(GrafoConPesos g) {
 		
 		arbolGenerado = new GrafoConPesos(g.vertices());
@@ -14,20 +15,16 @@ public class Kruskal {
 		while (i<g.vertices()-1) {
 			Arista arista = dameMinimaNoConexa(g , arbolGenerado); //arista a agregar en el arbol
 			
-			arbolGenerado.setArista(arista.getA(), arista.getB(),arista.getPeso());
-			System.out.println(arbolGenerado.getAristas());
+			arbolGenerado.setArista(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
+			
 			i+=1; //manejo de indice
 		}
 		
 		return arbolGenerado;
 	}
 
-	//agrega la arista a el arbol generado
-	private void agregarArista(Arista arista) {
-		arbolGenerado.setArista(arista.getA(), arista.getB(), arista.getPeso());;
-	}
 	
-	
+	//recorro el grafo y elijo la arista minima que no hace circuito en el arbol
 	public static Arista dameMinimaNoConexa(GrafoConPesos grafo , GrafoConPesos arbol) {
 		Arista temp = grafo.dameAristaMaxima(); //inicio con la primer arista para comparar
 		for (Arista arista : grafo.getAristas()) { //recorro el grafo
@@ -38,6 +35,7 @@ public class Kruskal {
 		return temp;
 	}
 	
+	//chequeo de si una arista hace circuito en un grafo
 	public static boolean haceCircuito(GrafoConPesos g , int origen ,int destino) {
 		Set<Integer> alcanzables =  BFS.alcanzables(g, origen);
 		return alcanzables.contains(destino);
