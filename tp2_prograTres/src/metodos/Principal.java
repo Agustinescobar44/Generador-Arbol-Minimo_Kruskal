@@ -9,19 +9,26 @@ public class Principal {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
  
-		//tomando tiempo de Kruskal sin union find
-//			long inicio = System.currentTimeMillis();
-//			for(int i=0; i<10 ; i++) {
-//				GrafoAleatorio a=new GrafoAleatorio();
-//				Kruskal.kruskal(a.grafoAleatorio());
-//			}
-//			long fin = System.currentTimeMillis();
-//			long total=(inicio-fin)/10;
-//			System.out.println("tiempo promedio del metodo UnionFind = " + total);
-		
-		GrafoAleatorio a=new GrafoAleatorio();
-		GrafoConPesos b =a.grafoAleatorio();
-		Kruskal.kruskal(b);
+		//tomando tiempo de Kruskal con BFS
+			long inicio = System.currentTimeMillis();
+			for(int i=0; i<100 ; i++) {
+				GrafoAleatorio a=new GrafoAleatorio();
+				KruskalBFS.kruskal(a.grafoAleatorio());
+			}
+			long fin = System.currentTimeMillis();
+			long total=(fin-inicio)/100;
+			System.out.println("tiempo promedio del metodo UnionFind = " + total);
+			
+		//tomando tiempo de Kruskal sin BFS
+			long inicio1 = System.currentTimeMillis();
+			for(int i=0; i<100 ; i++) {
+				GrafoAleatorio a=new GrafoAleatorio();
+				KruskalBFS.kruskal(a.grafoAleatorio());
+			}
+			long fin1 = System.currentTimeMillis();
+			long total1=(fin1-inicio1)/100;
+			System.out.println("tiempo promedio del metodo UnionFind = " + total);
+
 	}
 }
 

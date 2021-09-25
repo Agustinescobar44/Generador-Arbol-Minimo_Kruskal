@@ -5,7 +5,7 @@ import java.util.Set;
 import estructurasDeDatos.Arista;
 import estructurasDeDatos.GrafoConPesos;
 
-public class Kruskal {
+public class KruskalBFS {
 
 	static GrafoConPesos arbolGenerado ;
 	

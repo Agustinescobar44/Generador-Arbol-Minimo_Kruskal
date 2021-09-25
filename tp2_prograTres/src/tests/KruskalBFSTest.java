@@ -12,9 +12,9 @@ import org.junit.rules.ExpectedException;
 import estructurasDeDatos.Arista;
 import estructurasDeDatos.GrafoConPesos;
 import metodos.GrafoAleatorio;
-import metodos.Kruskal;
+import metodos.KruskalBFS;
 
-public class KruskalTest {
+public class KruskalBFSTest {
 
 	GrafoConPesos g;
 	@Before
@@ -38,7 +38,7 @@ public class KruskalTest {
 		esperados.add(new Arista(4, 0, 100));
 		esperados.add(new Arista(4, 3, 75));
 		
-		Assert.iguales(esperados , Kruskal.kruskal(g));
+		Assert.iguales(esperados , KruskalBFS.kruskal(g));
 	}
 	@Test 
 	public void testKruskalGrafoSinAristas() {
@@ -64,7 +64,7 @@ public class KruskalTest {
 		arbol.agregarArista(4, 3, 75);
 		arbol.agregarArista(4, 0, 100);
 		
-		assertEquals(new Arista(0, 1, 150), Kruskal.dameMinimaNoConexa(g,arbol));
+		assertEquals(new Arista(0, 1, 150), KruskalBFS.dameMinimaNoConexa(g,arbol));
 		
 	}
 
@@ -73,7 +73,7 @@ public class KruskalTest {
 		g = new GrafoConPesos(3);
 		g.agregarArista(0, 1, 120);
 		
-		assertFalse(Kruskal.haceCircuito(g, 0, 2));
+		assertFalse(KruskalBFS.haceCircuito(g, 0, 2));
 	}
 	@Test 
 	public void testHaceCircuitoVerdadero(){
@@ -81,7 +81,7 @@ public class KruskalTest {
 		g.agregarArista(0, 1, 120);
 		g.agregarArista(2, 1, 100);
 		
-		assertTrue(Kruskal.haceCircuito(g, 0, 2));
+		assertTrue(KruskalBFS.haceCircuito(g, 0, 2));
 	}
 	
 
