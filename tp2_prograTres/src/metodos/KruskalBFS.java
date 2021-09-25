@@ -12,6 +12,10 @@ public class KruskalBFS {
 	// este metodo usa el algoritmo de kruskal con BFS para devolver un arbol de un grafo dado
 	public static GrafoConPesos kruskal(GrafoConPesos g) {
 		
+		if(BFS.esConexo(g)) {
+			throw new RuntimeException("El grafo tiene que ser conexo");
+		}
+		
 		if(g.vertices() == 0) {
 			return g;
 		}

@@ -11,6 +11,10 @@ public class KruskalUnionFind  {
 	UnionFind raices;
 	
 	public GrafoConPesos Kruskal(GrafoConPesos g) {
+		
+		if(BFS.esConexo(g)) {
+			throw new RuntimeException("El grafo tiene que ser conexo");
+		}
 
 		
 		AGM = new GrafoConPesos(g.vertices());
