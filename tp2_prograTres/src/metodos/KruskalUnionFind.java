@@ -5,15 +5,14 @@ import estructurasDeDatos.GrafoConPesos;
 
 public class KruskalUnionFind  {
 
-//	GrafoConPesos g; 
+
 	GrafoConPesos AGM;
 	UnionFind raices;
 	
 	public GrafoConPesos Kruskal(GrafoConPesos g) {
-//		g = new GrafoConPesos(vertices);
+
 		
-		AGM = new GrafoConPesos(g.vertices());
-		
+		GrafoConPesos AGM = new GrafoConPesos(g.vertices());
 		raices=new UnionFind(AGM);
 		
 		int i = 0;
