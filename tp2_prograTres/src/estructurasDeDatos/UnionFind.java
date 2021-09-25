@@ -1,11 +1,9 @@
-package metodos;
-
-import estructurasDeDatos.GrafoConPesos;
+package estructurasDeDatos;
 
 public class UnionFind {
 	private int[] Raices;
 	
-	UnionFind(GrafoConPesos a){
+	public UnionFind(GrafoConPesos a){
 		int[] raices=new int[a.vertices()];
 		for(int i=0; i<a.vertices(); i++) {
 			raices[i]=i;		
