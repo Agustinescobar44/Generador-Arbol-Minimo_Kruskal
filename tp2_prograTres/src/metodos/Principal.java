@@ -2,6 +2,7 @@ package metodos;
 
 
 import estructurasDeDatos.Arista;
+import estructurasDeDatos.GrafoConPesos;
 
 public class Principal {
 
