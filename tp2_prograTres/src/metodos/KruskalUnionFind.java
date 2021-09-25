@@ -8,17 +8,12 @@ public class KruskalUnionFind  {
 
 
 	GrafoConPesos AGM;
-	UnionFind raices;
+	UnionFind unionFind;
 	
 	public GrafoConPesos Kruskal(GrafoConPesos g) {
-		
-		if(BFS.esConexo(g)) {
-			throw new RuntimeException("El grafo tiene que ser conexo");
-		}
-
-		
+	
 		AGM = new GrafoConPesos(g.vertices());
-		raices=new UnionFind(AGM);
+		unionFind=new UnionFind(g.vertices());
 		
 		int i = 0;
 		int verticesDelGrafo=g.vertices();
@@ -27,8 +22,13 @@ public class KruskalUnionFind  {
 			Arista arista = dameMinimaNoConexa(g); //arista a agregar en el arbol
 			
 			AGM.agregarArista(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
+			unionFind.unir(arista.getA(), arista.getB());
 			
 			i+=1; //manejo de indice
+		}
+		
+		if(!unionFind.esConexo()) {
+			throw new RuntimeException("El grafo tiene que ser conexo");
 		}
 		return AGM;
 			
@@ -40,7 +40,7 @@ public class KruskalUnionFind  {
 			
 			if(arista.compareTo(temp)<0) {
 				if (!AGM.existeArista(arista.getA(),arista.getB()) 
-					&& !raices.mismaCompConexa(arista.getA(), arista.getB())) {
+					&& !unionFind.mismaCompConexa(arista.getA(), arista.getB())) {
 					temp = arista;
 				}
 			}
@@ -52,7 +52,7 @@ public class KruskalUnionFind  {
 
 	public void agregarArista(Arista arista) {
 		AGM.agregarArista(arista.getA(), arista.getB(), arista.getPeso());
-		raices.unir(arista.getA(), arista.getB());
+		
 	}
 	
 

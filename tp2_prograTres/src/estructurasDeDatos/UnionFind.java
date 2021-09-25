@@ -3,12 +3,11 @@ package estructurasDeDatos;
 public class UnionFind {
 	private int[] Raices;
 	
-	public UnionFind(GrafoConPesos a){
-		int[] raices=new int[a.vertices()];
-		for(int i=0; i<a.vertices(); i++) {
-			raices[i]=i;		
+	public UnionFind(int cantVertices){
+		Raices=new int[cantVertices];
+		for(int i=0; i<cantVertices; i++) {
+			Raices[i]=i;
 		}
-		Raices=raices;
 	}
 	
 	public int buscarRaiz(int i) {
@@ -25,7 +24,15 @@ public class UnionFind {
 	public void unir(int i, int j) {
 		int raizDei=buscarRaiz(i);
 		int raizDej=buscarRaiz(j);
-		Raices[raizDei]=raizDej;
+		Raices[i]=raizDej;
+	}
+	
+	public boolean esConexo() {
+		boolean ret=true;
+		for(int indice:this.Raices) {
+			ret= ret && this.buscarRaiz(indice)==this.buscarRaiz(Raices[0]);
+		}
+		return ret;
 	}
 
 }
