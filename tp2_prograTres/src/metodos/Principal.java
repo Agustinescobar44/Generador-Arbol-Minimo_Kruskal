@@ -2,6 +2,7 @@ package metodos;
 
 
 import estructurasDeDatos.Arista;
+import estructurasDeDatos.GrafoConPesos;
 
 public class Principal {
 
@@ -19,7 +20,8 @@ public class Principal {
 //			System.out.println("tiempo promedio del metodo UnionFind = " + total);
 		
 		GrafoAleatorio a=new GrafoAleatorio();
-		Kruskal.kruskal(a.grafoAleatorio());
+		GrafoConPesos b =a.grafoAleatorio();
+		Kruskal.kruskal(b);
 	}
 }
 
