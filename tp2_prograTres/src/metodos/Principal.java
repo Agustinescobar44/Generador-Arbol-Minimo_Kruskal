@@ -16,8 +16,8 @@ public class Principal {
 				KruskalBFS.kruskal(a.grafoAleatorio());
 			}
 			long fin = System.currentTimeMillis();
-			long total=(fin-inicio)/100;
-			System.out.println("tiempo promedio del metodo UnionFind = " + total);
+			long total=(fin-inicio);
+			System.out.println("tiempo promedio del metodo BFS = " + total);
 			
 		//tomando tiempo de Kruskal sin BFS
 			long inicio1 = System.currentTimeMillis();
@@ -26,8 +26,8 @@ public class Principal {
 				KruskalBFS.kruskal(a.grafoAleatorio());
 			}
 			long fin1 = System.currentTimeMillis();
-			long total1=(fin1-inicio1)/100;
-			System.out.println("tiempo promedio del metodo UnionFind = " + total);
+			long total1=(fin1-inicio1);
+			System.out.println("tiempo promedio del metodo UnionFind = " + total1);
 
 	}
 }
