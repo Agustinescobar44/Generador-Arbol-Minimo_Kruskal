@@ -19,7 +19,9 @@ public class KruskalBFS {
 		arbolGenerado = new GrafoConPesos(g.vertices());
 		
 		int i = 0;
-		while (i<g.vertices()-1) {
+		int verticesDelGrafo=g.vertices();
+		
+		while (i<verticesDelGrafo-1) {
 			Arista arista = dameMinimaNoConexa(g , arbolGenerado); //arista a agregar en el arbol
 			
 			arbolGenerado.agregarArista(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol

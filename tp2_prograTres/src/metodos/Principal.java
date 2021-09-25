@@ -1,8 +1,12 @@
 package metodos;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 import estructurasDeDatos.Arista;
 import estructurasDeDatos.GrafoConPesos;
+import tests.Assert;
 
 public class Principal {
 
@@ -17,7 +21,7 @@ public class Principal {
 			}
 			long fin = System.currentTimeMillis();
 
-			long total=(fin-inicio);
+			long total=(fin-inicio)/100;
 			System.out.println("tiempo promedio del metodo BFS = " + total);
 
 			
@@ -31,6 +35,7 @@ public class Principal {
 
 			long total1=(fin1-inicio1)/100;
 			System.out.println("tiempo promedio del algoritmo Kruskal con UnionFind = " + total1);
+			
 
 
 	}

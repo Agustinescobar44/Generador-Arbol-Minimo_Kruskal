@@ -16,6 +16,7 @@ import metodos.KruskalUnionFind;
 public class KruskalUnionFindTest {
 	
 	GrafoConPesos g;
+	KruskalUnionFind kruskal;
 
 	@Before
 	public void setUp() throws Exception {
@@ -36,7 +37,7 @@ public class KruskalUnionFindTest {
 	
 	@Test
 	public void testKruskal() {
-		g=new GrafoConPesos(10);
+		g=new GrafoConPesos(5);
 		g.agregarArista(0,1,1);
 		g.agregarArista(1,2,2);
 		g.agregarArista(2,4,3);
@@ -49,18 +50,29 @@ public class KruskalUnionFindTest {
 		esperados.add(new Arista(1, 2, 2));
 		esperados.add(new Arista(2, 4, 3));
 		esperados.add(new Arista(4, 3, 1));
-		KruskalUnionFind kruskal=new KruskalUnionFind();
+		kruskal=new KruskalUnionFind();
 		Assert.iguales(esperados ,kruskal.Kruskal(g));
 	}
 
 	@Test
 	public void testDameMinimaNoConexa() {
-		fail("Not yet implemented");
+		g=new GrafoConPesos(3);
+		g.agregarArista(0,1,1);
+		g.agregarArista(1,2,2);
+		kruskal=new KruskalUnionFind();
+		assertEquals(new Arista(0,1,1),kruskal.Kruskal(g).getAristas().get(0));
 	}
 
 	@Test
 	public void testAgregarArista() {
-		fail("Not yet implemented");
+		g=new GrafoConPesos(3);
+		g.agregarArista(0,1,1);
+		g.agregarArista(1,2,2);
+		kruskal=new KruskalUnionFind();
+		GrafoConPesos grafo=kruskal.Kruskal(g);
+		assertTrue(grafo.existeArista(0, 1));
+		
+		
 	}
 
 }

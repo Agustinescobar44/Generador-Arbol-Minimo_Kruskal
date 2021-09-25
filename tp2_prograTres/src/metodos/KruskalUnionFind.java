@@ -12,11 +12,13 @@ public class KruskalUnionFind  {
 	public GrafoConPesos Kruskal(GrafoConPesos g) {
 
 		
-		GrafoConPesos AGM = new GrafoConPesos(g.vertices());
+		AGM = new GrafoConPesos(g.vertices());
 		raices=new UnionFind(AGM);
 		
 		int i = 0;
-		while (i<g.vertices()-1) {
+		int verticesDelGrafo=g.vertices();
+		
+		while (i<verticesDelGrafo-1) {
 			Arista arista = dameMinimaNoConexa(g); //arista a agregar en el arbol
 			
 			AGM.agregarArista(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
