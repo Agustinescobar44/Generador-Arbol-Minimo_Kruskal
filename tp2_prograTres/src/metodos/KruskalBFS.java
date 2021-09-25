@@ -13,7 +13,8 @@ public class KruskalBFS {
 	public static GrafoConPesos kruskal(GrafoConPesos g) {
 		
 		if(BFS.esConexo(g)) {
-			throw new RuntimeException("El grafo tiene que ser conexo");
+//			throw new RuntimeException("El grafo tiene que ser conexo");
+			System.out.println("El grafo no es conexo!");
 		}
 		
 		if(g.vertices() == 0) {

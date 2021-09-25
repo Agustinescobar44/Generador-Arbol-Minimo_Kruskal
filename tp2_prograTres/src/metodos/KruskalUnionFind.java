@@ -28,7 +28,8 @@ public class KruskalUnionFind  {
 		}
 		
 		if(!unionFind.esConexo()) {
-			throw new RuntimeException("El grafo tiene que ser conexo");
+//			throw new RuntimeException("El grafo tiene que ser conexo");
+			System.out.println("El grafo no es conexo!");
 		}
 		return AGM;
 			
