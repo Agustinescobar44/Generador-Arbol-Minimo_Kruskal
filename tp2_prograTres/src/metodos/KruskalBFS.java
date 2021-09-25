@@ -33,7 +33,7 @@ public class KruskalBFS {
 	
 	//recorro el grafo y elijo la arista minima que no hace circuito en el arbol
 	public static Arista dameMinimaNoConexa(GrafoConPesos grafo , GrafoConPesos arbol) {
-		Arista temp = grafo.dameAristaMaxima(); //inicio con la primer arista para comparar
+		Arista temp = grafo.getMaxima(); //inicio con la primer arista para comparar
 		for (Arista arista : grafo.getAristas()) { //recorro el grafo
 			//si la arista es menor a la maxima del grafo y no hace circuito con otra arista del
 			//arbol, la elijo

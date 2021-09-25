@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class GrafoConPesos extends Grafo {
 
 	private ArrayList<Arista> aristas;
-	
+	private Arista maxima;
 	public GrafoConPesos(int i) {
 		super(i);
 		aristas = new ArrayList<Arista>();
@@ -16,24 +16,16 @@ public class GrafoConPesos extends Grafo {
 		if(!existeArista(a, b)) {
 			agregarArista(a, b);
 			aristas.add(new Arista(a, b, peso));
-		} else { 
-			for (Arista arista : aristas) {
-				if(arista.getA() == a && arista.getB() == b)
-					arista.setPeso(peso);
-			}
+			maxima = dameAristaMaxima();
 		}
 	}
 	
 	public double getPeso(int a , int b) {
-		if(!existeArista(a, b)) {
-			throw new IllegalArgumentException("no existe esa arista");
-		}else {
 			for (Arista arista : aristas) {
 				if(arista.getA() == a && arista.getB() == b) {
 					return arista.getPeso();
 				}
 			}
-		}
 		return 0;
 	}
 	
@@ -41,7 +33,11 @@ public class GrafoConPesos extends Grafo {
 		return aristas;
 	}
 
-	public Arista dameAristaMaxima() {
+	public Arista getMaxima() {
+		return maxima;
+	}
+	
+	private Arista dameAristaMaxima() {
 		Arista maxima = aristas.get(0);
 		for (Arista arista : getAristas()) {
 			if (arista.compareTo(maxima)>0) {

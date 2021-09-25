@@ -29,7 +29,7 @@ public class KruskalUnionFind  {
 		}
 
 	public Arista dameMinimaNoConexa(GrafoConPesos g) {
-		Arista temp = g.getAristas().get(0);
+		Arista temp = g.getMaxima();
 		for (Arista arista : g.getAristas()) {
 			
 			if(arista.compareTo(temp)<0) {
