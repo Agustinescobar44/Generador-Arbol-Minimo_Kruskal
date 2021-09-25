@@ -12,7 +12,7 @@ public class GrafoConPesos extends Grafo {
 		aristas = new ArrayList<Arista>();
 	}
 	
-	public void setArista(int a , int b , int peso) {
+	public void setArista(int a , int b , double peso) {
 		if(!existeArista(a, b)) {
 			agregarArista(a, b);
 			aristas.add(new Arista(a, b, peso));
@@ -24,7 +24,7 @@ public class GrafoConPesos extends Grafo {
 		}
 	}
 	
-	public int getPeso(int a , int b) {
+	public double getPeso(int a , int b) {
 		if(!existeArista(a, b)) {
 			throw new IllegalArgumentException("no existe esa arista");
 		}else {

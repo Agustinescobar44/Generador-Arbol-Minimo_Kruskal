@@ -7,8 +7,10 @@ public class GrafoAleatorio {
 	
 	public GrafoConPesos grafoAleatorio(){
 		Random random= new Random();
-		int numVertices= random.nextInt();
-		int numAristas= random.nextInt();
+//		int numVertices= random.nextInt(30);
+		int numVertices= 10;
+//		int numAristas= random.nextInt(30);
+		int numAristas=10;
 		GrafoConPesos grafo= new GrafoConPesos(numVertices);
 		for(int i=0; i<numAristas; i++){
 
@@ -18,6 +20,7 @@ public class GrafoAleatorio {
 		  verticeB=random.nextInt(numVertices);
 		}
 		grafo.agregarArista(verticeA,verticeB);
+		grafo.setArista(verticeA, verticeB, random.nextDouble());
 		}
 
 		return grafo;
