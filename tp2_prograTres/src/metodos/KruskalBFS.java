@@ -1,5 +1,6 @@
 package metodos;
 
+import java.util.Collections;
 import java.util.Set;
 
 import estructurasDeDatos.Arista;
@@ -26,15 +27,16 @@ public class KruskalBFS {
 		int i = 0;
 		int verticesDelGrafo=g.vertices();
 		
+		
 		while (i<verticesDelGrafo-1) {
 			Arista arista = dameMinimaNoConexa(g , arbolGenerado); //arista a agregar en el arbol
 			
+			if(!haceCircuito(arbolGenerado, arista.getA(), arista.getB()))
 				arbolGenerado.agregarArista(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
 			
 			i+=1; //manejo de indice
 		}
 		
-		//System.out.println(arbolGenerado.getAristas());
 		return arbolGenerado;
 	}
 
@@ -47,7 +49,7 @@ public class KruskalBFS {
 			
 			//si la arista es menor a la maxima del grafo y no hace circuito con otra arista del
 			//arbol, la elijo
-			if(arista.compareTo(temp)<0&& !haceCircuito(arbolGenerado, arista.getA(), arista.getB())) 
+			if(arista.compareTo(temp)<0&& !haceCircuito(arbol, arista.getA(), arista.getB())) 
 				
 				temp = arista;
 			

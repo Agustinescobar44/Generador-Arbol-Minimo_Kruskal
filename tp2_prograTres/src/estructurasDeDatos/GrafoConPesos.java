@@ -8,7 +8,6 @@ import java.util.HashSet;
 public class GrafoConPesos extends Grafo {
 
 	private HashSet<Arista> aristas;
-	private Arista maxima;
 	public GrafoConPesos(int i) {
 		super(i);
 		aristas = new HashSet<Arista>();
@@ -35,7 +34,7 @@ public class GrafoConPesos extends Grafo {
 	}
 
 	public Arista getMaxima() {
-		return maxima;
+		return Collections.max(aristas);
 	}
 	
 }

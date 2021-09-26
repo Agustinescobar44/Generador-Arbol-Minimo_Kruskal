@@ -22,7 +22,7 @@ public class KruskalBFSTest {
 	public void setUp() throws Exception {
 	}
 
-	@Test @Ignore
+	@Test
 	public void testKruskalEsperado() {
 
 		g = new GrafoConPesos(5);
@@ -65,7 +65,7 @@ public class KruskalBFSTest {
 		System.out.println(KruskalBFS.kruskal(g).getAristas());
 		Assert.iguales(esperados , KruskalBFS.kruskal(g));
 	}
-	@Test @Ignore
+	@Test 
 	public void testKruskalGrafoSinAristas() {
 		
 		g = new GrafoConPesos(5);
@@ -74,7 +74,7 @@ public class KruskalBFSTest {
 		Assert.iguales(esperados, g);
 	}
 	
-	@Test@Ignore
+	@Test
 	public void testDameMinimaNoConexa() {
 		g = new GrafoConPesos(5);
 		g.agregarArista(0, 1, 150);
@@ -93,7 +93,7 @@ public class KruskalBFSTest {
 		
 	}
 
-	@Test  @Ignore
+	@Test 
 	public void testHaceCircuitoFalso(){
 		g = new GrafoConPesos(3);
 		g.agregarArista(0, 1, 120);
