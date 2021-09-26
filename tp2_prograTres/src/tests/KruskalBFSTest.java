@@ -62,7 +62,7 @@ public class KruskalBFSTest {
 		esperados.add(new Arista(4, 3, 10));
 		esperados.add(new Arista(6, 5, 444));
 		
-		System.out.println(KruskalBFS.kruskal(g).getAristas());
+
 		Assert.iguales(esperados , KruskalBFS.kruskal(g));
 	}
 	@Test 
