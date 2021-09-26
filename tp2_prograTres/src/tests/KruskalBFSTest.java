@@ -100,9 +100,17 @@ public class KruskalBFSTest {
 		
 		assertFalse(KruskalBFS.haceCircuito(g, 0, 2));
 	}
-	@Test @Ignore
+	@Test 
 	public void testHaceCircuitoVerdadero(){
 		g = new GrafoConPesos(3);
+		g.agregarArista(0, 1, 120);
+		g.agregarArista(2, 1, 100);
+		
+		assertTrue(KruskalBFS.haceCircuito(g, 0, 2));
+	}
+	@Test 
+	public void testHaceCircuitoVerdaderoGrafoNoConexo(){
+		g = new GrafoConPesos(4);
 		g.agregarArista(0, 1, 120);
 		g.agregarArista(2, 1, 100);
 		

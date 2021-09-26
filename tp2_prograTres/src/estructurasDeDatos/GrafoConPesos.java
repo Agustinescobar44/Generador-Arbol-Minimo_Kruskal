@@ -29,6 +29,7 @@ public class GrafoConPesos extends Grafo {
 		return 0;
 	}
 	
+	
 	public ArrayList<Arista> getAristas(){
 		return aristas;
 	}
