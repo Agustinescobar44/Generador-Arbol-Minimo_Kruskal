@@ -1,23 +1,23 @@
 package estructurasDeDatos;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 
 
 public class GrafoConPesos extends Grafo {
 
-	private ArrayList<Arista> aristas;
+	private HashSet<Arista> aristas;
 	private Arista maxima;
 	public GrafoConPesos(int i) {
 		super(i);
-		aristas = new ArrayList<Arista>();
+		aristas = new HashSet<Arista>();
 	}
 	
 	public void agregarArista(int a , int b , double peso) {
-		if(!existeArista(a, b)) {
+		if(!aristas.contains(new Arista(a, b, peso)))
 			agregarArista(a, b);
 			aristas.add(new Arista(a, b, peso));
-			maxima = dameAristaMaxima();
-		}
 	}
 	
 	public double getPeso(int a , int b) {
@@ -30,7 +30,7 @@ public class GrafoConPesos extends Grafo {
 	}
 	
 	
-	public ArrayList<Arista> getAristas(){
+	public HashSet<Arista> getAristas(){
 		return aristas;
 	}
 
@@ -38,13 +38,4 @@ public class GrafoConPesos extends Grafo {
 		return maxima;
 	}
 	
-	private Arista dameAristaMaxima() {
-		Arista maxima = aristas.get(0);
-		for (Arista arista : getAristas()) {
-			if (arista.compareTo(maxima)>0) {
-				maxima = arista;
-			}
-		}
-		return maxima;
-	}
 }
