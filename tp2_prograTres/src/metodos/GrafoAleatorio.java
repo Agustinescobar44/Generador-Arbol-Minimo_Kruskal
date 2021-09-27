@@ -9,7 +9,7 @@ public class GrafoAleatorio {
 		Random random= new Random();
 		int numVertices= n;
 		int numAristas=m;
-		
+		 
 		GrafoConPesos grafo= new GrafoConPesos(numVertices);
 		
 		for(int i=0; i<numAristas; i++){

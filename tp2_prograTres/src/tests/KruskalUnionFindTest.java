@@ -74,8 +74,7 @@ public class KruskalUnionFindTest {
 		kruskal=new KruskalUnionFind();
 		GrafoConPesos grafo=kruskal.Kruskal(g);
 		assertTrue(grafo.existeArista(0, 1));
-		
-		
+		 
 	}
 
 }

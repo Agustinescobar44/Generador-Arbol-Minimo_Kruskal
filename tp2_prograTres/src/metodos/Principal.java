@@ -35,7 +35,7 @@ public class Principal {
 
 			long total1=(fin1-inicio1)/100;
 			System.out.println("tiempo promedio del algoritmo Kruskal con UnionFind = " + total1);
-			
+			 
 
 	}
 }
