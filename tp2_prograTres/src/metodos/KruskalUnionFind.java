@@ -6,20 +6,19 @@ import estructurasDeDatos.UnionFind;
 
 public class KruskalUnionFind  {
 
-
-	GrafoConPesos AGM;
-	UnionFind unionFind;
 	
 	public GrafoConPesos Kruskal(GrafoConPesos g) {
-	
-		AGM = new GrafoConPesos(g.vertices());
-		unionFind=new UnionFind(g.vertices());
-		
-		int i = 0;
 		int verticesDelGrafo=g.vertices();
+		 
+		GrafoConPesos AGM = new GrafoConPesos(verticesDelGrafo);
+		UnionFind unionFind=new UnionFind(verticesDelGrafo);
+		
+
+		int i = 0;
+		
 		
 		while (i<verticesDelGrafo-1) {
-			Arista arista = dameMinimaNoConexa(g); //arista a agregar en el arbol
+			Arista arista = dameMinimaNoConexa(g,unionFind,AGM); //arista a agregar en el arbol
 			
 			AGM.agregarArista(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
 			unionFind.unir(arista.getA(), arista.getB());
@@ -35,7 +34,7 @@ public class KruskalUnionFind  {
 			
 		}
 
-	public Arista dameMinimaNoConexa(GrafoConPesos g) {
+	public static Arista dameMinimaNoConexa(GrafoConPesos g,UnionFind unionFind,GrafoConPesos AGM) {
 		Arista temp = g.getMaxima();
 		for (Arista arista : g.getAristas()) {
 			
@@ -51,7 +50,7 @@ public class KruskalUnionFind  {
 		
 	}
 
-	public void agregarArista(Arista arista) {
+	public void agregarArista(Arista arista, GrafoConPesos AGM) {
 		AGM.agregarArista(arista.getA(), arista.getB(), arista.getPeso());
 		
 	}
