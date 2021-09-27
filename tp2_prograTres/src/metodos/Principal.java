@@ -4,7 +4,7 @@ package metodos;
 import java.util.HashSet;
 import java.util.Set;
 
-import estructurasDeDatos.Arista;
+import estructurasDeDatos.AristaConPeso;
 import estructurasDeDatos.GrafoConPesos;
 import tests.Assert;
 
