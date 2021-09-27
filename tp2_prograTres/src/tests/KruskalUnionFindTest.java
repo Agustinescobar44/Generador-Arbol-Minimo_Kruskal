@@ -33,7 +33,6 @@ public class KruskalUnionFindTest {
 		g.agregarArista(4,3,1);
 		g.agregarArista(3,1,8);
 		g.agregarArista(3,0,9);
-		
 		assertEquals(g.getAristas().size(),6);
 	}
 	
@@ -75,8 +74,7 @@ public class KruskalUnionFindTest {
 		kruskal=new KruskalUnionFind();
 		GrafoConPesos grafo=kruskal.Kruskal(g);
 		assertTrue(grafo.existeArista(0, 1));
-		
-		
+		 
 	}
 
 }

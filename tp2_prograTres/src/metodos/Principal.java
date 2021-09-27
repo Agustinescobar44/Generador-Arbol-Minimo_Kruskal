@@ -17,7 +17,7 @@ public class Principal {
 			long inicio = System.currentTimeMillis();
 			for(int i=0; i<100 ; i++) {
 				GrafoAleatorio a=new GrafoAleatorio();
-				KruskalBFS.kruskal(a.grafoAleatorio());
+				KruskalBFS.kruskal(a.grafoAleatorio(10,9));
 			}
 			long fin = System.currentTimeMillis();
 
@@ -29,14 +29,13 @@ public class Principal {
 			long inicio1 = System.currentTimeMillis();
 			for(int i=0; i<100 ; i++) {
 				GrafoAleatorio a=new GrafoAleatorio();
-				KruskalBFS.kruskal(a.grafoAleatorio());
+				KruskalBFS.kruskal(a.grafoAleatorio(10,9));
 			}
 			long fin1 = System.currentTimeMillis();
 
 			long total1=(fin1-inicio1)/100;
 			System.out.println("tiempo promedio del algoritmo Kruskal con UnionFind = " + total1);
-			
-
+			 
 
 	}
 }

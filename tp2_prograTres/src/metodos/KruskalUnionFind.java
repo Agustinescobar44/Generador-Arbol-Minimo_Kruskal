@@ -7,7 +7,7 @@ import estructurasDeDatos.UnionFind;
 public class KruskalUnionFind  {
 
 	
-	public GrafoConPesos Kruskal(GrafoConPesos g) {
+	public static GrafoConPesos Kruskal(GrafoConPesos g) {
 		int verticesDelGrafo=g.vertices();
 		 
 		GrafoConPesos AGM = new GrafoConPesos(verticesDelGrafo);
