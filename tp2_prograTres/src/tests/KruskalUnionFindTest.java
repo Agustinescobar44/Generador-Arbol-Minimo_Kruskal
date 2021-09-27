@@ -8,7 +8,7 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
-import estructurasDeDatos.Arista;
+import estructurasDeDatos.AristaConPeso;
 import estructurasDeDatos.GrafoConPesos;
 import estructurasDeDatos.UnionFind;
 import metodos.KruskalBFS;
@@ -47,11 +47,11 @@ public class KruskalUnionFindTest {
 		g.agregarArista(3,1,8);
 		g.agregarArista(3,0,9);
 		
-		Set<Arista> esperados = new HashSet<Arista>();
-		esperados.add(new Arista(0, 1, 1));
-		esperados.add(new Arista(1, 2, 2));
-		esperados.add(new Arista(2, 4, 3));
-		esperados.add(new Arista(4, 3, 1));
+		Set<AristaConPeso> esperados = new HashSet<AristaConPeso>();
+		esperados.add(new AristaConPeso(0, 1, 1));
+		esperados.add(new AristaConPeso(1, 2, 2));
+		esperados.add(new AristaConPeso(2, 4, 3));
+		esperados.add(new AristaConPeso(4, 3, 1));
 		kruskal=new KruskalUnionFind();
 		Assert.iguales(esperados ,kruskal.Kruskal(g));
 	}
@@ -64,7 +64,7 @@ public class KruskalUnionFindTest {
 		GrafoConPesos aux=new GrafoConPesos(3);
 		g.agregarArista(0,1,1);
 		g.agregarArista(1,2,2);
-		assertEquals(new Arista(0,1,1),kruskal.dameMinimaNoConexa(g,unionFind,aux));
+		assertEquals(new AristaConPeso(0,1,1),kruskal.dameMinimaNoConexa(g,unionFind,aux));
 	}
 
 	@Test

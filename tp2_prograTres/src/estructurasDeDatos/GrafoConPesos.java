@@ -6,27 +6,27 @@ import java.util.HashSet;
 
 public class GrafoConPesos extends Grafo {
 
-	private HashSet<Arista> aristas;
+	private HashSet<AristaConPeso> aristas;
 	public GrafoConPesos(int i) {
 		super(i);
-		aristas = new HashSet<Arista>();
+		aristas = new HashSet<AristaConPeso>();
 	}
 	
 	public void agregarArista(int a , int b , double peso) {
-		if(!aristas.contains(new Arista(a, b, peso))) {
+		if(!aristas.contains(new AristaConPeso(a, b, peso))) {
 			agregarArista(a, b);
-			aristas.add(new Arista(a, b, peso));
+			aristas.add(new AristaConPeso(a, b, peso));
 		}else {
 			throw new RuntimeException("Esa arista ya existe en el grafo!");
 		}
 	}
 	
 	public double getPeso(int a , int b) {
-		if(!aristas.contains(new Arista(a, b, 0))) {
+		if(!aristas.contains(new AristaConPeso(a, b, 0))) {
 			throw new RuntimeException("La arista no existe en el grafo");
 		}
 
-		for (Arista arista : aristas) {
+		for (AristaConPeso arista : aristas) {
 				if(arista.getA() == a && arista.getB() == b) {
 						return arista.getPeso();
 				}
@@ -35,11 +35,11 @@ public class GrafoConPesos extends Grafo {
 	}
 	
 	
-	public HashSet<Arista> getAristas(){
+	public HashSet<AristaConPeso> getAristas(){
 		return aristas;
 	}
 
-	public Arista getMaxima() {
+	public AristaConPeso getMaxima() {
 		return Collections.max(aristas);
 	}
 	

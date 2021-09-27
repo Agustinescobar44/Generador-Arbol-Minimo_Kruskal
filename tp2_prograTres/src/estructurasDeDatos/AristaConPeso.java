@@ -1,12 +1,12 @@
 package estructurasDeDatos;
 
 
-public class Arista implements Comparable<Arista>{
+public class AristaConPeso implements Comparable<AristaConPeso>{
 	private int a ;
 	private int b ;
 	private double peso ;
 	
-	public Arista(int a , int b , double peso2) {
+	public AristaConPeso(int a , int b , double peso2) {
 		this.a = a;
 		this.b = b;
 		this.peso = peso2;
@@ -23,7 +23,7 @@ public class Arista implements Comparable<Arista>{
 		return peso+0;
 	}
 
-	public int compareTo(Arista o) {
+	public int compareTo(AristaConPeso o) {
 		if(this.peso<o.peso) {
 			return -1;
 		}else if (this.peso>o.peso) {
@@ -54,7 +54,7 @@ public class Arista implements Comparable<Arista>{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Arista other = (Arista) obj;
+		AristaConPeso other = (AristaConPeso) obj;
 		if ((a == other.a && b == other.b) ||
 				(a == other.b && b == other.a))
 			return true;

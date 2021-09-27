@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import estructurasDeDatos.Arista;
+import estructurasDeDatos.AristaConPeso;
 import estructurasDeDatos.GrafoConPesos;
 
 public class GrafoConPesosTest {
@@ -19,7 +19,7 @@ public class GrafoConPesosTest {
 	public void testAgregarArista() {
 		g = new GrafoConPesos(5);
 		g.agregarArista(0, 1, 150);
-		assertTrue(g.getAristas().contains(new Arista(0, 1, 150)));
+		assertTrue(g.getAristas().contains(new AristaConPeso(0, 1, 150)));
 		assertTrue(g.existeArista(0, 1));
 	}
 	@Test (expected = RuntimeException.class)
