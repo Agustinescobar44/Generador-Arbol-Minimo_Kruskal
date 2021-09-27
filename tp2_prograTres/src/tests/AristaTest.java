@@ -32,4 +32,22 @@ public class AristaTest {
 		assertEquals(0, a.compareTo(b));
 	}
 
+	@Test
+	public void testEqualsVerticesCambiados() {
+		Arista a = new Arista(0, 1, 120);
+		Arista b = new Arista(1, 0, 120);
+		assertTrue(a.equals(b));
+	}
+	@Test
+	public void testEqualsVerticesIguales() {
+		Arista a = new Arista(0, 1, 120);
+		Arista b = new Arista(0, 1, 120);
+		assertTrue(a.equals(b));
+	}
+	@Test
+	public void testEqualsAristasDiferentes() {
+		Arista a = new Arista(0, 1, 120);
+		Arista b = new Arista(2, 1, 120);
+		assertFalse(a.equals(b));
+	}
 }

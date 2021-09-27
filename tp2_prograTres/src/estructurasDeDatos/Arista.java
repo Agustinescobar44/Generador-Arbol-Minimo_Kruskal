@@ -55,11 +55,10 @@ public class Arista implements Comparable<Arista>{
 		if (getClass() != obj.getClass())
 			return false;
 		Arista other = (Arista) obj;
-		if (a != other.a)
-			return false;
-		if (b != other.b)
-			return false;
-		return true;
+		if ((a == other.a && b == other.b) ||
+				(a == other.b && b == other.a))
+			return true;
+		return false;
 	}
 
 	@Override
