@@ -41,30 +41,7 @@ public class KruskalBFSTest {
 		
 		Assert.iguales(esperados , KruskalBFS.kruskal(g));
 	}
-	@Test
-	public void testKruskalEsperadoGrafoNoConexo() {
-		
-		g = new GrafoConPesos(7);
-		g.agregarArista(0, 1, 100);
-		g.agregarArista(0, 2, 50);
-		g.agregarArista(0, 3, 500);
-		g.agregarArista(1, 2, 200);
-		g.agregarArista(1, 4, 20);
-		g.agregarArista(2, 3, 400);
-		g.agregarArista(3, 4, 10);
-		g.agregarArista(4, 0,100);
-		g.agregarArista(5, 6,444);
-		
-		Set<Arista> esperados = new HashSet<Arista>();
-		esperados.add(new Arista(0, 1, 100));
-		esperados.add(new Arista(0, 2, 50));
-		esperados.add(new Arista(4, 1, 20));
-		esperados.add(new Arista(4, 3, 10));
-		esperados.add(new Arista(6, 5, 444));
-		
-
-		Assert.iguales(esperados , KruskalBFS.kruskal(g));
-	}
+	
 	@Test 
 	public void testKruskalGrafoSinAristas() {
 		
