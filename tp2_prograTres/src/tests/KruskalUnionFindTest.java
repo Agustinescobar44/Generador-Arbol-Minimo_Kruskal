@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import estructurasDeDatos.Arista;
 import estructurasDeDatos.GrafoConPesos;
+import estructurasDeDatos.UnionFind;
 import metodos.KruskalBFS;
 import metodos.KruskalUnionFind;
 
@@ -17,7 +18,8 @@ public class KruskalUnionFindTest {
 	
 	GrafoConPesos g;
 	KruskalUnionFind kruskal;
-
+	UnionFind unionFind;
+	
 	@Before
 	public void setUp() throws Exception {
 	}
@@ -57,10 +59,12 @@ public class KruskalUnionFindTest {
 	@Test
 	public void testDameMinimaNoConexa() {
 		g=new GrafoConPesos(3);
+		kruskal=new KruskalUnionFind();
+		unionFind=new UnionFind(3);
+		GrafoConPesos aux=new GrafoConPesos(3);
 		g.agregarArista(0,1,1);
 		g.agregarArista(1,2,2);
-		kruskal=new KruskalUnionFind();
-		assertEquals(new Arista(0,1,1),kruskal.Kruskal(g).getAristas().get(0));
+		assertEquals(new Arista(0,1,1),kruskal.dameMinimaNoConexa(g,unionFind,aux));
 	}
 
 	@Test
