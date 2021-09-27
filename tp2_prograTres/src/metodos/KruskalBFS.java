@@ -3,6 +3,8 @@ package metodos;
 import java.util.Collections;
 import java.util.Set;
 
+import com.sun.tools.classfile.Annotation.element_value;
+
 import estructurasDeDatos.Arista;
 import estructurasDeDatos.GrafoConPesos;
 
@@ -27,10 +29,11 @@ public class KruskalBFS {
 		int i = 0;
 		int verticesDelGrafo=g.vertices();
 		
+		Set<Arista> aristasGrafo = (Set<Arista>) g.getAristas().clone();
 		
 		while (i<verticesDelGrafo-1) {
-			Arista arista = dameMinimaNoConexa(g , arbolGenerado); //arista a agregar en el arbol
-			
+			Arista arista = dameMinimaNoConexa(aristasGrafo , arbolGenerado); //arista a agregar en el arbol
+			if(arista!=null)
 			arbolGenerado.agregarArista(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
 			
 			i+=1; //manejo de indice
@@ -41,18 +44,21 @@ public class KruskalBFS {
 
 	
 	//recorro el grafo y elijo la arista minima que no hace circuito en el arbol
-	public static Arista dameMinimaNoConexa(GrafoConPesos grafo , GrafoConPesos arbol) {
-		Arista temp = grafo.getMaxima(); //inicio con la primer arista para comparar
+	public static Arista dameMinimaNoConexa(Set<Arista> aristasGrafo , GrafoConPesos arbol) {
+		Arista temp = null; //inicio con la primer arista para comparar
 		
-		for (Arista arista : grafo.getAristas()) { //recorro el grafo
-			
-			//si la arista es menor a la maxima del grafo y no hace circuito con otra arista del
-			//arbol, la elijo
-			if(arista.compareTo(temp)<0&& !haceCircuito(arbol, arista.getA(), arista.getB())) 
+		for (Arista arista : aristasGrafo) { //recorro el grafo
+			if(temp == null) {
+				temp = arista;
+			}
+			//si la arista es menor a la primera de las aristas del grafo y no hace circuito con otra arista del arbol, la elijo
+			else if(arista.compareTo(temp)<0 && 
+					!haceCircuito(arbol, arista.getA(), arista.getB())) {
 				
 				temp = arista;
-			
+			}
 		}
+		aristasGrafo.remove(temp); //remuevo la arista del set de aristas del grafo
 		return temp;
 	}
 	
