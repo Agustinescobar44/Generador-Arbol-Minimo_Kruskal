@@ -18,7 +18,7 @@ public class UnionFind {
 	}
 	
 	public boolean mismaCompConexa(int i,int j) {
-		return Raices[i]==Raices[j];
+		return buscarRaiz(i)==buscarRaiz(j);
 	}
 	
 	public void unir(int i, int j) {
