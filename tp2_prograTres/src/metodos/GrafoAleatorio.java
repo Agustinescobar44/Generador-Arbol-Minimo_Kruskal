@@ -5,10 +5,10 @@ import java.util.Random;
 import estructurasDeDatos.GrafoConPesos;
 public class GrafoAleatorio {
 	
-	public GrafoConPesos grafoAleatorio(){
+	public GrafoConPesos grafoAleatorio(int n, int m){
 		Random random= new Random();
-		int numVertices= 10;
-		int numAristas=9;
+		int numVertices= n;
+		int numAristas=m;
 		
 		GrafoConPesos grafo= new GrafoConPesos(numVertices);
 		
