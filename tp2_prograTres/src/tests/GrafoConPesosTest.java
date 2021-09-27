@@ -22,6 +22,12 @@ public class GrafoConPesosTest {
 		assertTrue(g.getAristas().contains(new Arista(0, 1, 150)));
 		assertTrue(g.existeArista(0, 1));
 	}
+	@Test (expected = RuntimeException.class)
+	public void testAgregarAristaExistente() {
+		g = new GrafoConPesos(5);
+		g.agregarArista(0, 1, 150);
+		g.agregarArista(0, 1, 150);
+	}
 
 	@Test
 	public void testGetPeso() {
