@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import estructurasDeDatos.Arista;
 import estructurasDeDatos.GrafoConPesos;
-import sun.awt.www.content.image.gif;
 
 public class GrafoConPesosTest {
 
