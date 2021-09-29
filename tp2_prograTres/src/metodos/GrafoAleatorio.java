@@ -16,7 +16,7 @@ public class GrafoAleatorio {
 			int verticeA=random.nextInt(numVertices);
 			int verticeB=verticeA;
 			
-			while(verticeA==verticeB){
+			while(verticeA==verticeB || grafo.existeArista(verticeA, verticeB)) {
 				verticeB=random.nextInt(numVertices);
 			}
 			
