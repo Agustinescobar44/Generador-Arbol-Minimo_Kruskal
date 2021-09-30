@@ -32,6 +32,7 @@ public class Principal {
 				KruskalBFS.kruskal(a);
 			}
 			
+<<<<<<< HEAD
 			long fin = System.currentTimeMillis();
 			long total=(fin-inicio)/100;
 			System.out.println("tiempo promedio del metodo BFS (grafos de 10 vertices, 9 aristas)= " + total);
@@ -48,6 +49,10 @@ public class Principal {
 			long fin1 = System.currentTimeMillis();
 			long total1=(fin1-inicio1)/100;
 			System.out.println("tiempo promedio del metodo BFS (grafos de 100 vertices, 99 aristas)= " + total1);
+=======
+		//tomando tiempo de Kruskal con BFS (grafos de 100 vertices, 99 aristas)
+		System.out.println("tiempo promedio del metodo BFS (grafos de 100 vertices, 99 aristas)= " + promedioKruskal("BFS",100,100,99));
+>>>>>>> parent of 21605ce... "detalles en principal, grafo y grafo con pesos"
 			
 			
 		//tomando tiempo de Kruskal con UnionFind (grafos de 10 vertices, 9 aristas)
@@ -70,9 +75,14 @@ public class Principal {
 				KruskalUnionFind.Kruskal(a3);
 			}
 			
+<<<<<<< HEAD
 			long fin3 = System.currentTimeMillis();
 			long total3=(fin3-inicio3)/100;
 			System.out.println("tiempo promedio del algoritmo Kruskal con UnionFind (grafos de 100 vertices, 99 aristas)= " + total3);
+=======
+		//tomando tiempo de Kruskal con UnionFind (grafos de 100 vertices, 99 aristas)
+		System.out.println("tiempo promedio del algoritmo Kruskal con UnionFind (grafos de 100 vertices, 99 aristas)= " + promedioKruskal("UnionFind",100,100,99));
+>>>>>>> parent of 21605ce... "detalles en principal, grafo y grafo con pesos"
 			 
 
 	}

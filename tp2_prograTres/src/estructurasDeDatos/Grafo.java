@@ -22,7 +22,11 @@ public class Grafo
 		_vertice = vertices;
 	}
 	
+<<<<<<< HEAD
 	public void agregarArista ( int i, int j)
+=======
+	public void agregarAristaConPeso( int i, int j)
+>>>>>>> parent of 21605ce... "detalles en principal, grafo y grafo con pesos"
 	{
 		verificarArista(i, j, "agregar");
 		

@@ -14,11 +14,24 @@ public class GrafoConPesos extends Grafo {
 	
 	public void agregarArista(int a , int b , double peso) {
 		if(!aristas.contains(new AristaConPeso(a, b, peso))) {
-			agregarArista(a, b);
+			agregarAristaConPeso(a, b);
 			aristas.add(new AristaConPeso(a, b, peso));
 		}else {
 			throw new RuntimeException("Esa arista ya existe en el grafo!");
 		}
+<<<<<<< HEAD
+=======
+		else {
+			throw new RuntimeException("La arista ya existe");
+		}
+	}
+	
+	@Override
+	public boolean existeArista (int i, int j){
+		verificarArista(i, j, "consultar");
+		
+		return aristas.contains(new AristaConPeso(i, j, 0.1));
+>>>>>>> parent of 21605ce... "detalles en principal, grafo y grafo con pesos"
 	}
 	
 	public double getPeso(int a , int b) {
