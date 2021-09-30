@@ -8,9 +8,9 @@ public class Principal {
 		GrafoAleatorio a=new GrafoAleatorio();
 		GrafoConPesos grafoGenerado=a.grafoAleatorio(n,m);
 		
-//		while(!BFS.esConexo(grafoGenerado)) {
-//			grafoGenerado=a.grafoAleatorio(n,m);
-//		}
+		while(!BFS.esConexo(grafoGenerado)) {
+			grafoGenerado=a.grafoAleatorio(n,m);
+		}
 		return grafoGenerado;
 	}
 	

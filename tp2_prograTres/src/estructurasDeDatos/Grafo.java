@@ -22,7 +22,7 @@ public class Grafo
 		_vertice = vertices;
 	}
 	
-	public void agregarArista ( int i, int j)
+	public void agregarAristaConPeso( int i, int j)
 	{
 		verificarArista(i, j, "agregar");
 		

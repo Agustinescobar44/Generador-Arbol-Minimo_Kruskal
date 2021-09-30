@@ -16,12 +16,11 @@ public class GrafoAleatorio {
 			int verticeA=random.nextInt(numVertices);
 			int verticeB=verticeA;
 			
-			while(verticeA==verticeB || grafo.existeArista(verticeA, verticeB)) {
+			while( (verticeA==verticeB) || (grafo.existeArista(verticeA, verticeB)) ) {
 				verticeB=random.nextInt(numVertices);
 			}
 			
-			grafo.agregarArista(verticeA, verticeB, random.nextDouble());
-		
+			grafo.agregarAristaConPeso(verticeA, verticeB, random.nextDouble());
 		}
 		
 		return grafo;

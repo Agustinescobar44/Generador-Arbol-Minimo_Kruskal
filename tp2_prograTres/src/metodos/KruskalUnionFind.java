@@ -20,7 +20,7 @@ public class KruskalUnionFind  {
 		while (i<verticesDelGrafo-1) {
 			AristaConPeso arista = dameMinimaNoConexa(g,unionFind,AGM); //arista a agregar en el arbol
 			
-			AGM.agregarArista(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
+			AGM.agregarAristaConPeso(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
 			unionFind.unir(arista.getA(), arista.getB());
 			
 			i+=1; //manejo de indice
@@ -51,7 +51,7 @@ public class KruskalUnionFind  {
 	}
 
 	public void agregarArista(AristaConPeso arista, GrafoConPesos AGM) {
-		AGM.agregarArista(arista.getA(), arista.getB(), arista.getPeso());
+		AGM.agregarAristaConPeso(arista.getA(), arista.getB(), arista.getPeso());
 		
 	}
 	

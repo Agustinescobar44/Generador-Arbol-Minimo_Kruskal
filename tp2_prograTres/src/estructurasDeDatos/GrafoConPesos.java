@@ -12,11 +12,21 @@ public class GrafoConPesos extends Grafo {
 		aristas = new HashSet<AristaConPeso>();
 	}
 	
-	public void agregarArista(int a , int b , double peso) {
+	public void agregarAristaConPeso(int a , int b , double peso) {
 		if(!aristas.contains(new AristaConPeso(a, b, peso))) {
-			agregarArista(a, b);
+			agregarAristaConPeso(a, b);
 			aristas.add(new AristaConPeso(a, b, peso));
 		}
+		else {
+			throw new RuntimeException("La arista ya existe");
+		}
+	}
+	
+	@Override
+	public boolean existeArista (int i, int j){
+		verificarArista(i, j, "consultar");
+		
+		return aristas.contains(new AristaConPeso(i, j, 0.1));
 	}
 	
 	public double getPeso(int a , int b) {
