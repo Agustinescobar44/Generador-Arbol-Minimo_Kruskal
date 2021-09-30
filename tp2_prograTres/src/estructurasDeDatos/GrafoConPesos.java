@@ -16,8 +16,6 @@ public class GrafoConPesos extends Grafo {
 		if(!aristas.contains(new AristaConPeso(a, b, peso))) {
 			agregarArista(a, b);
 			aristas.add(new AristaConPeso(a, b, peso));
-		}else {
-			throw new RuntimeException("Esa arista ya existe en el grafo!");
 		}
 	}
 	
