@@ -24,12 +24,12 @@ public class KruskalBFSTest {
 	public void testKruskalEsperado() {
 
 		g = new GrafoConPesos(5);
-		g.agregarArista(0, 1, 150);
-		g.agregarArista(1, 2, 200);
-		g.agregarArista(2, 4, 300);
-		g.agregarArista(4, 3, 75);
-		g.agregarArista(3, 1,500);
-		g.agregarArista(4, 0,100);
+		g.agregarAristaConPeso(0, 1, 150);
+		g.agregarAristaConPeso(1, 2, 200);
+		g.agregarAristaConPeso(2, 4, 300);
+		g.agregarAristaConPeso(4, 3, 75);
+		g.agregarAristaConPeso(3, 1,500);
+		g.agregarAristaConPeso(4, 0,100);
 		
 		Set<AristaConPeso> esperados = new HashSet<AristaConPeso>();
 		esperados.add(new AristaConPeso(0, 1, 150));
@@ -52,18 +52,18 @@ public class KruskalBFSTest {
 	@Test
 	public void testDameMinimaNoConexa() {
 		g = new GrafoConPesos(5);
-		g.agregarArista(0, 1, 150);
-		g.agregarArista(1, 2, 200);
-		g.agregarArista(2, 4, 300);
-		g.agregarArista(4, 3, 75);
-		g.agregarArista(3, 1,500);
-		g.agregarArista(4, 0,100);
+		g.agregarAristaConPeso(0, 1, 150);
+		g.agregarAristaConPeso(1, 2, 200);
+		g.agregarAristaConPeso(2, 4, 300);
+		g.agregarAristaConPeso(4, 3, 75);
+		g.agregarAristaConPeso(3, 1,500);
+		g.agregarAristaConPeso(4, 0,100);
 		
 		Set<AristaConPeso> aristasGrafo = g.getAristas();
 		GrafoConPesos arbol = new GrafoConPesos(5);
 		
-		arbol.agregarArista(4, 3, 75);
-		arbol.agregarArista(4, 0, 100);
+		arbol.agregarAristaConPeso(4, 3, 75);
+		arbol.agregarAristaConPeso(4, 0, 100);
 		aristasGrafo.remove(new AristaConPeso(4, 3, 75));
 		aristasGrafo.remove(new AristaConPeso(4, 0, 100));
 		
@@ -74,25 +74,31 @@ public class KruskalBFSTest {
 	@Test 
 	public void testHaceCircuitoFalso(){
 		g = new GrafoConPesos(3);
-		g.agregarArista(0, 1, 120);
+		g.agregarAristaConPeso(0, 1, 120);
 		
 		assertFalse(KruskalBFS.haceCircuito(g, 0, 2));
 	}
 	@Test 
 	public void testHaceCircuitoVerdadero(){
 		g = new GrafoConPesos(3);
-		g.agregarArista(0, 1, 120);
-		g.agregarArista(2, 1, 100);
+		g.agregarAristaConPeso(0, 1, 120);
+		g.agregarAristaConPeso(2, 1, 100);
 		
 		assertTrue(KruskalBFS.haceCircuito(g, 0, 2));
 	}
 	@Test 
 	public void testHaceCircuitoVerdaderoGrafoNoConexo(){
 		g = new GrafoConPesos(4);
-		g.agregarArista(0, 1, 120);
-		g.agregarArista(2, 1, 100);
+		g.agregarAristaConPeso(0, 1, 120);
+		g.agregarAristaConPeso(2, 1, 100);
 		
 		assertTrue(KruskalBFS.haceCircuito(g, 0, 2));
+	}
+	
+	public void testConGrafoNoConexo() {
+		g=new GrafoConPesos(4);
+		g.agregarAristaConPeso(1, 2, 10);
+		KruskalBFS.kruskal(g);
 	}
 	
 
