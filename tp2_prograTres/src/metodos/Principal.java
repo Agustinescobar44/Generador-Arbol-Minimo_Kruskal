@@ -1,12 +1,6 @@
 package metodos;
 
-
-import java.util.HashSet;
-import java.util.Set;
-
-import estructurasDeDatos.AristaConPeso;
 import estructurasDeDatos.GrafoConPesos;
-import tests.Assert;
 
 public class Principal {
 	
