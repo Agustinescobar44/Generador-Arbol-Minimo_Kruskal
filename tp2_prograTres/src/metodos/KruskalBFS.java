@@ -13,32 +13,31 @@ public class KruskalBFS {
 	// este metodo usa el algoritmo de kruskal con BFS para devolver un arbol de un grafo dado
 	public static GrafoConPesos kruskal(GrafoConPesos g) {
 		
-		if(!BFS.esConexo(g)) {
-			return null;
+		if(BFS.esConexo(g)) {
+//			throw new RuntimeException("El grafo tiene que ser conexo");
+			System.out.println("El grafo no es conexo!");
 		}
 		
-		else if(g.vertices() == 0) {
+		if(g.vertices() == 0) {
 			return g;
 		}
 		
-		else {
-			arbolGenerado = new GrafoConPesos(g.vertices());
+		arbolGenerado = new GrafoConPesos(g.vertices());
+		
+		int i = 0;
+		int verticesDelGrafo=g.vertices();
+		
+		Set<AristaConPeso> aristasGrafo = (Set<AristaConPeso>) g.getAristas().clone();
+		
+		while (i<verticesDelGrafo-1) {
+			AristaConPeso arista = dameMinimaNoConexa(aristasGrafo , arbolGenerado); //arista a agregar en el arbol
+			if(arista!=null)
+			arbolGenerado.agregarArista(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
 			
-			int i = 0;
-			int verticesDelGrafo=g.vertices();
-			
-			Set<AristaConPeso> aristasGrafo = (Set<AristaConPeso>) g.getAristas().clone();
-			
-			while (i<verticesDelGrafo-1) {
-				AristaConPeso arista = dameMinimaNoConexa(aristasGrafo , arbolGenerado); //arista a agregar en el arbol
-				if(arista!=null)
-				arbolGenerado.agregarArista(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
-				
-				i+=1; //manejo de indice
-			}
-			
-			return arbolGenerado;
+			i+=1; //manejo de indice
 		}
+		
+		return arbolGenerado;
 	}
 
 	
