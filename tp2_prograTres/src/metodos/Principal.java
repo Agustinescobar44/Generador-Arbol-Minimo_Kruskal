@@ -59,7 +59,7 @@ public class Principal {
 			}
 			
 			long fin2 = System.currentTimeMillis();
-			long total2=(fin2-inicio2)/200;
+			long total2=(fin2-inicio2)/100;
 			System.out.println("tiempo promedio del algoritmo Kruskal con UnionFind (grafos de 10 vertices, 9 aristas)= " + total2);
 			
 			//tomando tiempo de Kruskal con UnionFind (grafos de 100 vertices, 99 aristas)
