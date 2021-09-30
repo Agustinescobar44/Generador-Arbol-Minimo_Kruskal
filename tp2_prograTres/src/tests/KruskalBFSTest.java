@@ -95,6 +95,12 @@ public class KruskalBFSTest {
 		assertTrue(KruskalBFS.haceCircuito(g, 0, 2));
 	}
 	
+	public void testConGrafoNoConexo() {
+		g=new GrafoConPesos(4);
+		g.agregarAristaConPeso(1, 2, 10);
+		KruskalBFS.kruskal(g);
+	}
+	
 
 	
 }

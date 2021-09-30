@@ -27,9 +27,11 @@ public class UnionFindTest {
 
 	@Test
 	public void testEsConexo() {
-		unionFind=new UnionFind(3);
+		unionFind=new UnionFind(5);
 		unionFind.unir(0, 1);
 		unionFind.unir(1, 2);
+		unionFind.unir(3, 2);
+		unionFind.unir(4, 3);
 		assertTrue(unionFind.esConexo());
 	}
 	

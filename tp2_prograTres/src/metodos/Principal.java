@@ -46,7 +46,7 @@ public class Principal {
 			
 			
 		//tomando tiempo de Kruskal con BFS (grafos de 100 vertices, 99 aristas)
-		System.out.println("tiempo promedio del metodo BFS (grafos de 100 vertices, 99 aristas)= " + promedioKruskal("BFS",100,100,99));
+		System.out.println("tiempo promedio del metodo BFS (grafos de 50 vertices, 49 aristas)= " + promedioKruskal("BFS",100,50,49));
 			
 			
 		//tomando tiempo de Kruskal con UnionFind (grafos de 10 vertices, 9 aristas)
@@ -54,7 +54,7 @@ public class Principal {
 		System.out.println("tiempo promedio del algoritmo Kruskal con UnionFind (grafos de 10 vertices, 9 aristas)= " + promedioKruskal("UnionFind",100,10,9));
 			
 		//tomando tiempo de Kruskal con UnionFind (grafos de 100 vertices, 99 aristas)
-		System.out.println("tiempo promedio del algoritmo Kruskal con UnionFind (grafos de 100 vertices, 99 aristas)= " + promedioKruskal("UnionFind",100,100,99));
+		System.out.println("tiempo promedio del algoritmo Kruskal con UnionFind (grafos de 50 vertices, 49 aristas)= " + promedioKruskal("UnionFind",100,50,49));
 			 
 
 	}
