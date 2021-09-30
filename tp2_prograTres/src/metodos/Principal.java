@@ -13,10 +13,10 @@ public class Principal {
 	public static GrafoConPesos generarGrafoConexo(int n, int m) {
 		GrafoAleatorio a=new GrafoAleatorio();
 		GrafoConPesos grafoGenerado=a.grafoAleatorio(n,m);
-		BFS bfs=new BFS();
-		while(!bfs.esConexo(grafoGenerado)) {
-			grafoGenerado=a.grafoAleatorio(n,m);
-		}
+		
+//		while(!BFS.esConexo(grafoGenerado)) {
+//			grafoGenerado=a.grafoAleatorio(n,m);
+//		}
 		return grafoGenerado;
 	}
 
@@ -46,7 +46,7 @@ public class Principal {
 			}
 			
 			long fin1 = System.currentTimeMillis();
-			long total1=(fin-inicio)/100;
+			long total1=(fin1-inicio1)/100;
 			System.out.println("tiempo promedio del metodo BFS (grafos de 100 vertices, 99 aristas)= " + total1);
 			
 			
@@ -59,7 +59,7 @@ public class Principal {
 			}
 			
 			long fin2 = System.currentTimeMillis();
-			long total2=(fin1-inicio1)/200;
+			long total2=(fin2-inicio2)/200;
 			System.out.println("tiempo promedio del algoritmo Kruskal con UnionFind (grafos de 10 vertices, 9 aristas)= " + total2);
 			
 			//tomando tiempo de Kruskal con UnionFind (grafos de 100 vertices, 99 aristas)
@@ -71,7 +71,7 @@ public class Principal {
 			}
 			
 			long fin3 = System.currentTimeMillis();
-			long total3=(fin1-inicio1)/100;
+			long total3=(fin3-inicio3)/100;
 			System.out.println("tiempo promedio del algoritmo Kruskal con UnionFind (grafos de 100 vertices, 99 aristas)= " + total3);
 			 
 
