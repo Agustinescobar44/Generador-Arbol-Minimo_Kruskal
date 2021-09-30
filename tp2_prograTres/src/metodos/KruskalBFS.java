@@ -32,7 +32,7 @@ public class KruskalBFS {
 		while (i<verticesDelGrafo-1) {
 			AristaConPeso arista = dameMinimaNoConexa(aristasGrafo , arbolGenerado); //arista a agregar en el arbol
 			if(arista!=null)
-			arbolGenerado.agregarArista(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
+			arbolGenerado.agregarAristaConPeso(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
 			
 			i+=1; //manejo de indice
 		}
