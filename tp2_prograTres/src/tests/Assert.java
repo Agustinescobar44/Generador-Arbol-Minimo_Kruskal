@@ -18,4 +18,10 @@ public class Assert {
 		}
 	}
 
+	public static void iguales(int[] esperados, Set<Integer> alcanzables) {
+		assertEquals(esperados.length, alcanzables.size());
+		for (Integer elem : esperados) {
+			assertTrue(alcanzables.contains(elem));
+		}
+	}
 }
