@@ -27,24 +27,24 @@ public class KruskalUnionFindTest {
 	@Test
 	public void tamano() {
 		g=new GrafoConPesos(10);
-		g.agregarArista(0,1,1);
-		g.agregarArista(1,2,2);
-		g.agregarArista(2,4,3);
-		g.agregarArista(4,3,1);
-		g.agregarArista(3,1,8);
-		g.agregarArista(3,0,9);
+		g.agregarAristaConPeso(0,1,1);
+		g.agregarAristaConPeso(1,2,2);
+		g.agregarAristaConPeso(2,4,3);
+		g.agregarAristaConPeso(4,3,1);
+		g.agregarAristaConPeso(3,1,8);
+		g.agregarAristaConPeso(3,0,9);
 		assertEquals(g.getAristas().size(),6);
 	}
 	
 	@Test
 	public void testKruskal() {
 		g=new GrafoConPesos(5);
-		g.agregarArista(0,1,1);
-		g.agregarArista(1,2,2);
-		g.agregarArista(2,4,3);
-		g.agregarArista(4,3,1);
-		g.agregarArista(3,1,8);
-		g.agregarArista(3,0,9);
+		g.agregarAristaConPeso(0,1,1);
+		g.agregarAristaConPeso(1,2,2);
+		g.agregarAristaConPeso(2,4,3);
+		g.agregarAristaConPeso(4,3,1);
+		g.agregarAristaConPeso(3,1,8);
+		g.agregarAristaConPeso(3,0,9);
 		
 		Set<AristaConPeso> esperados = new HashSet<AristaConPeso>();
 		esperados.add(new AristaConPeso(0, 1, 1));
@@ -61,16 +61,16 @@ public class KruskalUnionFindTest {
 		kruskal=new KruskalUnionFind();
 		unionFind=new UnionFind(3);
 		GrafoConPesos aux=new GrafoConPesos(3);
-		g.agregarArista(0,1,1);
-		g.agregarArista(1,2,2);
+		g.agregarAristaConPeso(0,1,1);
+		g.agregarAristaConPeso(1,2,2);
 		assertEquals(new AristaConPeso(0,1,1),kruskal.dameMinimaNoConexa(g,unionFind,aux));
 	}
 
 	@Test
 	public void testAgregarArista() {
 		g=new GrafoConPesos(3);
-		g.agregarArista(0,1,1);
-		g.agregarArista(1,2,2);
+		g.agregarAristaConPeso(0,1,1);
+		g.agregarAristaConPeso(1,2,2);
 		kruskal=new KruskalUnionFind();
 		GrafoConPesos grafo=kruskal.Kruskal(g);
 		assertTrue(grafo.existeArista(0, 1));

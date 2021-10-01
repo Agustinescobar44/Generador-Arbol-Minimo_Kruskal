@@ -20,7 +20,7 @@ public class GrafoAleatorio {
 				verticeB=random.nextInt(numVertices);
 			}
 			
-			grafo.agregarArista(verticeA, verticeB, random.nextDouble());
+			grafo.agregarAristaConPeso(verticeA, verticeB, random.nextDouble());
 		
 		}
 		
