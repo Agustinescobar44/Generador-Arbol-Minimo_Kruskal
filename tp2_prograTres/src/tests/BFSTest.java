@@ -45,9 +45,10 @@ private Grafo grafo = new Grafo(5);
 		assertFalse(BFS.esConexo(grafo));
 	}
 	@Test
-	public void testNoGrafoConexo(){
+	public void testGrafoNoConexo(){
 		
-		grafo.eliminarArista(3, 4);
+		grafo.eliminarArista(2, 3);
+		grafo.agregarArista(3, 4);
 		assertFalse(BFS.esConexo(grafo));
 	}
 	@Test
