@@ -26,6 +26,7 @@ public class UnionFindHashMap {
 	public void unir(int i, int j) {
 		int raizDei=buscarRaiz(i);
 		int raizDej=buscarRaiz(j);
-		Raices.put(j, raizDei);
+		Raices.put(raizDei, raizDej);
 	}
+	
 }
