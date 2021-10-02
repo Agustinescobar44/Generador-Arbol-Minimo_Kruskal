@@ -24,7 +24,7 @@ public class UnionFind {
 	public void unir(int i, int j) {
 		int raizDei=buscarRaiz(i);
 		int raizDej=buscarRaiz(j);
-		Raices[i]=raizDej;
+		Raices[raizDei]=raizDej;
 	}
 	
 	public boolean esConexo() {
