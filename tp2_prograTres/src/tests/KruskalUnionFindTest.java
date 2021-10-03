@@ -20,22 +20,6 @@ public class KruskalUnionFindTest {
 	KruskalUnionFind kruskal;
 	UnionFind unionFind;
 	
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@Test
-	public void tamano() {
-		g=new GrafoConPesos(10);
-		g.agregarAristaConPeso(0,1,1);
-		g.agregarAristaConPeso(1,2,2);
-		g.agregarAristaConPeso(2,4,3);
-		g.agregarAristaConPeso(4,3,1);
-		g.agregarAristaConPeso(3,1,8);
-		g.agregarAristaConPeso(3,0,9);
-		assertEquals(g.getAristas().size(),6);
-	}
-	
 	@Test
 	public void testKruskal() {
 		g=new GrafoConPesos(5);
