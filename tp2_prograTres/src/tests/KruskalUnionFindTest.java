@@ -4,14 +4,11 @@ import static org.junit.Assert.*;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import org.junit.Before;
 import org.junit.Test;
 
 import estructurasDeDatos.AristaConPeso;
 import estructurasDeDatos.GrafoConPesos;
 import estructurasDeDatos.UnionFind;
-import metodos.KruskalBFS;
 import metodos.KruskalUnionFind;
 
 public class KruskalUnionFindTest {
@@ -35,8 +32,7 @@ public class KruskalUnionFindTest {
 		esperados.add(new AristaConPeso(1, 2, 2));
 		esperados.add(new AristaConPeso(2, 4, 3));
 		esperados.add(new AristaConPeso(4, 3, 1));
-		kruskal=new KruskalUnionFind();
-		Assert.iguales(esperados ,kruskal.Kruskal(g));
+		Assert.iguales(esperados ,KruskalUnionFind.Kruskal(g));
 	}
 
 	@Test
@@ -47,7 +43,7 @@ public class KruskalUnionFindTest {
 		GrafoConPesos aux=new GrafoConPesos(3);
 		g.agregarAristaConPeso(0,1,1);
 		g.agregarAristaConPeso(1,2,2);
-		assertEquals(new AristaConPeso(0,1,1),kruskal.dameMinimaNoConexa(g,unionFind,aux));
+		assertEquals(new AristaConPeso(0,1,1),KruskalUnionFind.dameMinimaNoConexa(g,unionFind,aux));
 	}
 
 	@Test
@@ -55,8 +51,7 @@ public class KruskalUnionFindTest {
 		g=new GrafoConPesos(3);
 		g.agregarAristaConPeso(0,1,1);
 		g.agregarAristaConPeso(1,2,2);
-		kruskal=new KruskalUnionFind();
-		GrafoConPesos grafo=kruskal.Kruskal(g);
+		GrafoConPesos grafo=KruskalUnionFind.Kruskal(g);
 		assertTrue(grafo.existeArista(0, 1));
 		 
 	}
