@@ -6,6 +6,31 @@ import java.util.Set;
 import estructurasDeDatos.GrafoConPesos;
 
 public class Principal {
+
+	public static void main(String[] args) {
+		//==============Variables==============
+		StringBuilder ret = new StringBuilder();
+		int verticesG = 50; 
+		int cantidadDeEjecuciones=100;
+		
+		int verticesMuchos = 50;
+		int cantidadGrafos = 200;
+		
+		//==============Graficar==============
+		ret.append("Mediciones multiples sobre una instancia\n---------------------\n");
+		medirEnG(verticesG,cantidadDeEjecuciones,ret);
+		verticesG = 100;
+		medirEnG(verticesG,cantidadDeEjecuciones,ret);
+		verticesG = 150;
+		medirEnG(verticesG,cantidadDeEjecuciones,ret);
+		verticesG = 200;
+		medirEnG(verticesG,cantidadDeEjecuciones,ret);
+		ret.append("===============================================\n");
+		ret.append("Mediciones unicas sobre "+cantidadGrafos+" instancias\n---------------------\n");
+		medirEnMuchos(cantidadGrafos,verticesMuchos,ret);
+		
+		System.out.println(ret);
+	}
 	
 	public static GrafoConPesos generarGrafoConexo(int n, int m) {
 		GrafoAleatorio a=new GrafoAleatorio();
@@ -63,32 +88,7 @@ public class Principal {
 		return total;
 	}
 
-	public static void main(String[] args) {
-		//==============Variables==============
-		StringBuilder ret = new StringBuilder();
-		int verticesG = 50; 
-		int cantidadDeEjecuciones=100;
-		
-		int verticesMuchos = 50;
-		int cantidadGrafos = 200;
-		
-		//==============Graficar==============
-		ret.append("Mediciones multiples sobre una instancia\n---------------------\n");
-		medirEnG(verticesG,cantidadDeEjecuciones,ret);
-		verticesG = 100;
-		medirEnG(verticesG,cantidadDeEjecuciones,ret);
-		verticesG = 150;
-		medirEnG(verticesG,cantidadDeEjecuciones,ret);
-		verticesG = 200;
-		medirEnG(verticesG,cantidadDeEjecuciones,ret);
-		ret.append("===============================================\n");
-		ret.append("Mediciones unicas sobre "+cantidadGrafos+" instancias\n---------------------\n");
-		medirEnMuchos(cantidadGrafos,verticesMuchos,ret);
-		
-		System.out.println(ret);
-	}
-	
-		private static void medirEnG(int vertices,int veces,StringBuilder ret) {
+	private static void medirEnG(int vertices,int veces,StringBuilder ret) {
 		//==============Generacion del Grafo==============
 		int verticesG = vertices;
 		int aristasG = verticesG+(verticesG/2);
@@ -108,7 +108,7 @@ public class Principal {
 		ret.append("Tiempo promedio de kruskal con UnionFind en G= ");		  
 		ret.append(tiempoUnionFindEnG+"\n*****************\n");
 	}
-		private static void medirEnMuchos(int cantidadGrafos, int vertices,StringBuilder ret) {
+	private static void medirEnMuchos(int cantidadGrafos, int vertices,StringBuilder ret) {
 			int aristas=vertices+(vertices/2);
 			//==============Generacion de Grafos==============
 			Set<GrafoConPesos> grafos = new HashSet<GrafoConPesos>();
