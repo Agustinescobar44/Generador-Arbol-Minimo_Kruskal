@@ -20,7 +20,7 @@ public class KruskalBFSTest {
 	public void setUp() throws Exception {
 	}
 
-	@Test @Ignore
+	@Test 
 	public void testKruskalEsperado() {
 
 		g = new GrafoConPesos(5);
@@ -38,6 +38,15 @@ public class KruskalBFSTest {
 		esperados.add(new AristaConPeso(4, 3, 75));
 		
 		Assert.iguales(esperados , KruskalBFS.kruskal(g));
+	}
+	@Test(expected = IllegalArgumentException.class)
+	public void testKruskalGrafoNoConexo() {
+		g = new GrafoConPesos(5);
+		g.agregarAristaConPeso(1, 2, 200);
+		g.agregarAristaConPeso(2, 4, 300);
+		g.agregarAristaConPeso(4, 3, 75);
+		g.agregarAristaConPeso(3, 1,500);
+		KruskalBFS.kruskal(g);
 	}
 	
 	@Test 
