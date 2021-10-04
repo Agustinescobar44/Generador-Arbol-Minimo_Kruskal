@@ -117,7 +117,7 @@ public class Principal {
 			}
 			//==============Medicion de Tiempos==============
 			long tiemposBFSEnMuchos = promedioKruskalSetDeGrafos("bfs", grafos);
-			long tiemposUnionFindEnMuchos = promedioKruskalSetDeGrafos("bfs", grafos);
+			long tiemposUnionFindEnMuchos = promedioKruskalSetDeGrafos("unionfind", grafos);
 			
 			//==============Graficar==============
 			ret.append("Cada instancia tiene "+vertices+ " vertices y ");
