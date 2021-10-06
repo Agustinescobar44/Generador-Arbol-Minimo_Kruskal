@@ -1,7 +1,7 @@
 package estructurasDeDatos;
 
 public class UnionFind {
-	private int[] Raices;
+	protected int[] Raices;
 	
 	public UnionFind(int cantVertices){
 		Raices=new int[cantVertices];

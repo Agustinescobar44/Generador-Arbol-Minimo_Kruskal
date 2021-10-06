@@ -8,6 +8,7 @@ import estructurasDeDatos.GrafoConPesos;
 public class Principal {
 
 	public static void main(String[] args) {
+		
 		//==============Variables==============
 		StringBuilder ret = new StringBuilder();
 		int verticesG = 100; 
@@ -46,6 +47,7 @@ public class Principal {
 		System.out.println(ret);
 	}
 	
+	
 	public static GrafoConPesos generarGrafoConexo(int n, int m) {
 		GrafoAleatorio a=new GrafoAleatorio();
 		GrafoConPesos grafoGenerado=a.grafoAleatorio(n,m);
@@ -56,6 +58,7 @@ public class Principal {
 		
 		return grafoGenerado;
 	}
+	
 	
 	public static long promedioKruskalEnGrafo(String tipoKruskal, int veces, GrafoConPesos a) {
 		long inicio = System.currentTimeMillis();
@@ -79,6 +82,8 @@ public class Principal {
 		
 		return total;
 	}
+	
+	
 	public static long promedioKruskalSetDeGrafos(String tipoKruskal,Set<GrafoConPesos> grafos) {
 		long inicio = System.currentTimeMillis();
 		tipoKruskal.toLowerCase();
@@ -101,6 +106,7 @@ public class Principal {
 		
 		return total;
 	}
+	
 
 	private static void medirEnG(int vertices,int veces,StringBuilder ret) {
 		//==============Generacion del Grafo==============
@@ -122,6 +128,8 @@ public class Principal {
 		ret.append("Tiempo promedio de kruskal con UnionFind en G= ");		  
 		ret.append(tiempoUnionFindEnG+"\n*****************\n");
 	}
+	
+	
 	private static void medirEnMuchos(int cantidadGrafos, int vertices,StringBuilder ret) {
 			int aristas=vertices+(vertices/2);
 			//==============Generacion de Grafos==============
@@ -141,4 +149,5 @@ public class Principal {
 			ret.append("Medicion de Kruskal con UnionFind= ");
 			ret.append(tiemposUnionFindEnMuchos);
 		}
+	
 }

@@ -3,7 +3,6 @@ package metodos;
 import java.util.Random;
 
 import estructurasDeDatos.GrafoConPesos;
-import estructurasDeDatos.UnionFind;
 public class GrafoAleatorio {
 	
 	public GrafoConPesos grafoAleatorio(int n, int m){
