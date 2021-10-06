@@ -2,7 +2,6 @@ package metodos;
 
 import estructurasDeDatos.AristaConPeso;
 import estructurasDeDatos.GrafoConPesos;
-import estructurasDeDatos.UnionFind;
 import estructurasDeDatos.UnionFindPC;
 
 public class KruskalUnionFindPC extends KruskalUnionFind {
