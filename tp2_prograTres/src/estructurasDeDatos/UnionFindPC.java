@@ -1,5 +1,6 @@
 package estructurasDeDatos;
 
+//implementacion Union-Find con Path Compression
 public class UnionFindPC extends UnionFind {
 
 	public UnionFindPC(int cantVertices) {
