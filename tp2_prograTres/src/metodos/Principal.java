@@ -10,7 +10,7 @@ public class Principal {
 	public static void main(String[] args) {
 		//==============Variables==============
 		StringBuilder ret = new StringBuilder();
-		int verticesG = 50; 
+		int verticesG = 100; 
 		int cantidadDeEjecuciones=100;
 		
 		int verticesMuchos = 50;
@@ -19,9 +19,23 @@ public class Principal {
 		//==============Graficar==============
 		ret.append("Mediciones multiples sobre una instancia\n---------------------\n");
 		medirEnG(verticesG,cantidadDeEjecuciones,ret);
-		verticesG = 100;
+		verticesG = 110;
+		medirEnG(verticesG,cantidadDeEjecuciones,ret);
+		verticesG = 120;
+		medirEnG(verticesG,cantidadDeEjecuciones,ret);
+		verticesG = 130;
+		medirEnG(verticesG,cantidadDeEjecuciones,ret);
+		verticesG = 140;
 		medirEnG(verticesG,cantidadDeEjecuciones,ret);
 		verticesG = 150;
+		medirEnG(verticesG,cantidadDeEjecuciones,ret);
+		verticesG = 160;
+		medirEnG(verticesG,cantidadDeEjecuciones,ret);
+		verticesG = 170;
+		medirEnG(verticesG,cantidadDeEjecuciones,ret);
+		verticesG = 180;
+		medirEnG(verticesG,cantidadDeEjecuciones,ret);
+		verticesG = 190;
 		medirEnG(verticesG,cantidadDeEjecuciones,ret);
 		verticesG = 200;
 		medirEnG(verticesG,cantidadDeEjecuciones,ret);
@@ -61,7 +75,7 @@ public class Principal {
 		}
 		
 		long fin = System.currentTimeMillis();
-		long total=(fin-inicio);
+		long total=(fin-inicio)/veces;
 		
 		return total;
 	}
