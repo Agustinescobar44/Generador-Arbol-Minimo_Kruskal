@@ -19,23 +19,20 @@ public class KruskalUnionFind  {
 		
 		while (i<verticesDelGrafo-1) {
 			AristaConPeso arista = dameMinimaNoConexa(g,unionFind,AGM); //arista a agregar en el arbol
-			
-			AGM.agregarAristaConPeso(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
-			unionFind.unir(arista.getA(), arista.getB());
-			
+			if(arista!= null) {
+				AGM.agregarAristaConPeso(arista.getA(), arista.getB(),arista.getPeso());//agrego la arista minima que no hace circuito al arbol
+				unionFind.unir(arista.getA(), arista.getB());
+			}else
+				throw new RuntimeException("El grafo no es conexo");
 			i+=1; //manejo de indice
 		}
 		
-		if(!unionFind.esConexo()) {
-//			throw new RuntimeException("El grafo tiene que ser conexo");
-			System.out.println("El grafo no es conexo!");
-		}
 		return AGM;
 			
 		}
 
 	public static AristaConPeso dameMinimaNoConexa(GrafoConPesos g,UnionFind unionFind,GrafoConPesos AGM) {
-		AristaConPeso temp = g.getMaxima();
+		AristaConPeso temp = null;
 		for (AristaConPeso arista : g.getAristas()) {
 			
 			if(arista.compareTo(temp)<0) {
