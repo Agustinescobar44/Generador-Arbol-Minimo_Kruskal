@@ -9,6 +9,7 @@ import org.junit.Test;
 import estructurasDeDatos.AristaConPeso;
 import estructurasDeDatos.GrafoConPesos;
 import estructurasDeDatos.UnionFind;
+import metodos.KruskalBFS;
 import metodos.KruskalUnionFind;
 
 public class KruskalUnionFindTest {
@@ -33,6 +34,16 @@ public class KruskalUnionFindTest {
 		esperados.add(new AristaConPeso(2, 4, 3));
 		esperados.add(new AristaConPeso(4, 3, 1));
 		Assert.iguales(esperados ,KruskalUnionFind.Kruskal(g));
+	}
+	
+	@Test(expected = RuntimeException.class)
+	public void testKruskalGrafoNoConexo() {
+		g = new GrafoConPesos(5);
+		g.agregarAristaConPeso(1, 2, 200);
+		g.agregarAristaConPeso(2, 4, 300);
+		g.agregarAristaConPeso(4, 3, 75);
+		g.agregarAristaConPeso(3, 1,500);
+		KruskalUnionFind.Kruskal(g);
 	}
 
 	@Test
