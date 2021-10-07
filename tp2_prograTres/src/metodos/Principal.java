@@ -75,6 +75,7 @@ public class Principal {
 		//==============Medicion de tiempo==============
 		long tiempoBFSEnG = promedioKruskalEnGrafo("bfs", cantidadDeEjecuciones, g);
 		long tiempoUnionFindEnG = promedioKruskalEnGrafo("unionfind", cantidadDeEjecuciones, g);
+		long tiempoPrimEnG = promedioKruskalEnGrafo("prim", cantidadDeEjecuciones, g);
 		
 		//==============Graficar==============
 		ret.append("Cantidad de vertices en G= " + verticesG+" / ");
@@ -83,7 +84,9 @@ public class Principal {
 		ret.append("Tiempo promedio de kruskal con BFS en G= ");
 		ret.append(tiempoBFSEnG+"\n");
 		ret.append("Tiempo promedio de kruskal con UnionFind en G= ");		  
-		ret.append(tiempoUnionFindEnG+"\n*****************\n");
+		ret.append(tiempoUnionFindEnG+"\n");
+		ret.append("Tiempo promedio Prim en G= ");		  
+		ret.append(tiempoPrimEnG+"\n*****************\n");
 	}
 	
 	public static long promedioKruskalEnGrafo(String tipoKruskal, int veces, GrafoConPesos a) {
@@ -97,6 +100,11 @@ public class Principal {
 		else if(tipoKruskal.equals("unionfind")) {
 			for(int i=0; i<veces ; i++) {
 				KruskalUnionFind.Kruskal(a);
+			}
+		}
+		else if(tipoKruskal.equals("prim")) {
+			for(int i=0; i<veces ; i++) {
+				Prim.prim(a,0); // el origen siempre sera 0
 			}
 		}
 		else {
@@ -119,6 +127,7 @@ public class Principal {
 			//==============Medicion de Tiempos==============
 			long tiemposBFSEnMuchos = promedioKruskalSetDeGrafos("bfs", grafos);
 			long tiemposUnionFindEnMuchos = promedioKruskalSetDeGrafos("unionfind", grafos);
+			long tiemposPrimEnMuchos = promedioKruskalSetDeGrafos("prim", grafos);
 			
 			//==============Graficar==============
 			ret.append("Cada instancia tiene "+vertices+ " vertices y ");
@@ -127,6 +136,9 @@ public class Principal {
 			ret.append(tiemposBFSEnMuchos+"\n");
 			ret.append("Medicion de Kruskal con UnionFind= ");
 			ret.append(tiemposUnionFindEnMuchos);
+			ret.append("Medicion de Prim= ");
+			ret.append(tiemposPrimEnMuchos);
+			
 		}
 	
 	public static long promedioKruskalSetDeGrafos(String tipoKruskal,Set<GrafoConPesos> grafos) {
@@ -140,6 +152,11 @@ public class Principal {
 		else if(tipoKruskal.equals("unionfind")) {
 			for (GrafoConPesos grafoConPesos : grafos) {
 				KruskalUnionFind.Kruskal(grafoConPesos);
+			}
+		}
+		else if(tipoKruskal.equals("prim")) {
+			for (GrafoConPesos grafoConPesos : grafos) {
+				Prim.prim(grafoConPesos,0);
 			}
 		}
 		else {
