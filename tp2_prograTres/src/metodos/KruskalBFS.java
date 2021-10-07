@@ -22,7 +22,7 @@ public class KruskalBFS {
 		int i = 0;
 		int verticesDelGrafo=g.vertices();
 		
-		Set<AristaConPeso> aristasGrafo = (Set<AristaConPeso>) g.getAristas().clone();
+		Set<AristaConPeso> aristasGrafo = g.getAristas();
 		
 		while (i<verticesDelGrafo-1) {
 			AristaConPeso arista = dameMinimaNoConexa(aristasGrafo , arbolGenerado); //arista a agregar en el arbol

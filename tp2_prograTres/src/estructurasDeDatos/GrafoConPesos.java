@@ -37,7 +37,7 @@ public class GrafoConPesos extends Grafo {
 	
 	
 	public HashSet<AristaConPeso> getAristas(){
-		return aristas;
+		return (HashSet<AristaConPeso>) aristas.clone();
 	}
 
 	public AristaConPeso getMaxima() {
