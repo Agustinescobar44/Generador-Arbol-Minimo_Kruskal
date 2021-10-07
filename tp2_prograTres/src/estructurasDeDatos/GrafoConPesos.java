@@ -24,12 +24,13 @@ public class GrafoConPesos extends Grafo {
 	}
 	
 	public double getPeso(int a , int b) {
-		if(!aristas.contains(new AristaConPeso(a, b, 0))) {
+		if(!existeArista(a, b)) {
 			throw new RuntimeException("La arista no existe en el grafo");
 		}
 
 		for (AristaConPeso arista : aristas) {
-				if(arista.getA() == a && arista.getB() == b) {
+				if((arista.getA() == a && arista.getB() == b)||
+						(arista.getA() == b && arista.getB() == a)) {
 						return arista.getPeso();
 				}
 		}
