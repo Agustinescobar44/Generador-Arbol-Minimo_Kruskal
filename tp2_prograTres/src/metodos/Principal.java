@@ -60,52 +60,9 @@ public class Principal {
 	}
 	
 	
-	public static long promedioKruskalEnGrafo(String tipoKruskal, int veces, GrafoConPesos a) {
-		long inicio = System.currentTimeMillis();
-		tipoKruskal.toLowerCase();
-		if (tipoKruskal.equals("bfs")) {
-			for(int i=0; i<veces ; i++) {
-				KruskalBFS.kruskal(a);
-			}
-		}
-		else if(tipoKruskal.equals("unionfind")) {
-			for(int i=0; i<veces ; i++) {
-				KruskalUnionFind.Kruskal(a);
-			}
-		}
-		else {
-			throw new RuntimeException("El tipo de implementacion de kruskal no es correcto");
-		}
-		
-		long fin = System.currentTimeMillis();
-		long total=(fin-inicio)/veces;
-		
-		return total;
-	}
 	
 	
-	public static long promedioKruskalSetDeGrafos(String tipoKruskal,Set<GrafoConPesos> grafos) {
-		long inicio = System.currentTimeMillis();
-		tipoKruskal.toLowerCase();
-		if (tipoKruskal.equals("bfs")) {
-			for (GrafoConPesos grafoConPesos : grafos) {
-				KruskalBFS.kruskal(grafoConPesos);
-			}
-		}
-		else if(tipoKruskal.equals("unionfind")) {
-			for (GrafoConPesos grafoConPesos : grafos) {
-				KruskalUnionFind.Kruskal(grafoConPesos);
-			}
-		}
-		else {
-			throw new RuntimeException("El tipo de implementacion de kruskal no es correcto");
-		}
-		
-		long fin = System.currentTimeMillis();
-		long total=(fin-inicio);
-		
-		return total;
-	}
+	
 	
 
 	private static void medirEnG(int vertices,int veces,StringBuilder ret) {
@@ -129,6 +86,28 @@ public class Principal {
 		ret.append(tiempoUnionFindEnG+"\n*****************\n");
 	}
 	
+	public static long promedioKruskalEnGrafo(String tipoKruskal, int veces, GrafoConPesos a) {
+		long inicio = System.currentTimeMillis();
+		tipoKruskal.toLowerCase();
+		if (tipoKruskal.equals("bfs")) {
+			for(int i=0; i<veces ; i++) {
+				KruskalBFS.kruskal(a);
+			}
+		}
+		else if(tipoKruskal.equals("unionfind")) {
+			for(int i=0; i<veces ; i++) {
+				KruskalUnionFind.Kruskal(a);
+			}
+		}
+		else {
+			throw new RuntimeException("El tipo de implementacion de kruskal no es correcto");
+		}
+		
+		long fin = System.currentTimeMillis();
+		long total=(fin-inicio)/veces;
+		
+		return total;
+	}
 	
 	private static void medirEnMuchos(int cantidadGrafos, int vertices,StringBuilder ret) {
 			int aristas=vertices+(vertices/2);
@@ -149,5 +128,28 @@ public class Principal {
 			ret.append("Medicion de Kruskal con UnionFind= ");
 			ret.append(tiemposUnionFindEnMuchos);
 		}
+	
+	public static long promedioKruskalSetDeGrafos(String tipoKruskal,Set<GrafoConPesos> grafos) {
+		long inicio = System.currentTimeMillis();
+		tipoKruskal.toLowerCase();
+		if (tipoKruskal.equals("bfs")) {
+			for (GrafoConPesos grafoConPesos : grafos) {
+				KruskalBFS.kruskal(grafoConPesos);
+			}
+		}
+		else if(tipoKruskal.equals("unionfind")) {
+			for (GrafoConPesos grafoConPesos : grafos) {
+				KruskalUnionFind.Kruskal(grafoConPesos);
+			}
+		}
+		else {
+			throw new RuntimeException("El tipo de implementacion de kruskal no es correcto");
+		}
+		
+		long fin = System.currentTimeMillis();
+		long total=(fin-inicio);
+		
+		return total;
+	}
 	
 }
