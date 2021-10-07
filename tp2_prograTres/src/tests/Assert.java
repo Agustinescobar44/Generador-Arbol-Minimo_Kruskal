@@ -11,10 +11,10 @@ import estructurasDeDatos.GrafoConPesos;
 public class Assert {
 
 
-	public static void iguales(Set<AristaConPeso> esperados, GrafoConPesos kruskal) {
-		assertEquals(esperados.size(), kruskal.getAristas().size());
+	public static void iguales(Set<AristaConPeso> esperados, GrafoConPesos grafo) {
+		assertEquals(esperados.size(), grafo.getAristas().size());
 		for (AristaConPeso arista : esperados) {
-			assertTrue(kruskal.existeArista(arista.getA(), arista.getB()));
+			assertTrue(grafo.existeArista(arista.getA(), arista.getB()));
 		}
 	}
 
