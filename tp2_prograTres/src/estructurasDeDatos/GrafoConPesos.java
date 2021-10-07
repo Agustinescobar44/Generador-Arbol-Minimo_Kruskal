@@ -13,13 +13,14 @@ public class GrafoConPesos extends Grafo {
 	}
 	
 	public void agregarAristaConPeso(int a , int b , double peso) {
-		if(!aristas.contains(new AristaConPeso(a, b, peso))) {
+		AristaConPeso arista = new AristaConPeso(a, b, peso);
+		if(!aristas.contains(arista)) {
 			agregarArista(a, b);
-			aristas.add(new AristaConPeso(a, b, peso));
+			aristas.add(arista);
 		}
-//		else {
-//			throw new RuntimeException("La arista ya existe");
-//		}
+		else {
+			throw new RuntimeException("La arista ya existe");
+		}
 	}
 	
 	public double getPeso(int a , int b) {
