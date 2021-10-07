@@ -14,7 +14,7 @@ public class GrafoConPesos extends Grafo {
 	
 	public void agregarAristaConPeso(int a , int b , double peso) {
 		AristaConPeso arista = new AristaConPeso(a, b, peso);
-		if(!aristas.contains(arista)) {
+		if(!existeArista(a, b)) {
 			agregarArista(a, b);
 			aristas.add(arista);
 		}
