@@ -24,6 +24,9 @@ public class AristaConPeso implements Comparable<AristaConPeso>{
 	}
 
 	public int compareTo(AristaConPeso o) {
+		if(o==null) {
+			return 1;
+		}
 		if(this.peso<o.peso) {
 			return -1;
 		}else if (this.peso>o.peso) {
