@@ -75,6 +75,7 @@ public class Principal {
 		//==============Medicion de tiempo==============
 		long tiempoBFSEnG = promedioKruskalEnGrafo("bfs", cantidadDeEjecuciones, g);
 		long tiempoUnionFindEnG = promedioKruskalEnGrafo("unionfind", cantidadDeEjecuciones, g);
+		long tiempoUnionFindPCEnG = promedioKruskalEnGrafo("unionfindpc", cantidadDeEjecuciones, g);
 		long tiempoPrimEnG = promedioKruskalEnGrafo("prim", cantidadDeEjecuciones, g);
 		
 		//==============Graficar==============
@@ -85,6 +86,8 @@ public class Principal {
 		ret.append(tiempoBFSEnG+"\n");
 		ret.append("Tiempo promedio de kruskal con UnionFind en G= ");		  
 		ret.append(tiempoUnionFindEnG+"\n");
+		ret.append("Tiempo promedio de kruskal con UnionFind Path Compression en G= ");		  
+		ret.append(tiempoUnionFindPCEnG+"\n");
 		ret.append("Tiempo promedio Prim en G= ");		  
 		ret.append(tiempoPrimEnG+"\n*****************\n");
 	}
@@ -100,6 +103,11 @@ public class Principal {
 		else if(tipoKruskal.equals("unionfind")) {
 			for(int i=0; i<veces ; i++) {
 				KruskalUnionFind.Kruskal(a);
+			}
+		}
+		else if(tipoKruskal.equals("unionfindpc")) {
+			for(int i=0; i<veces ; i++) {
+				KruskalUnionFindPC.Kruskal(a); // el origen siempre sera 0
 			}
 		}
 		else if(tipoKruskal.equals("prim")) {
@@ -127,6 +135,7 @@ public class Principal {
 			//==============Medicion de Tiempos==============
 			long tiemposBFSEnMuchos = promedioKruskalSetDeGrafos("bfs", grafos);
 			long tiemposUnionFindEnMuchos = promedioKruskalSetDeGrafos("unionfind", grafos);
+			long tiemposUnionFindPCEnMuchos = promedioKruskalSetDeGrafos("unionfindpc", grafos);
 			long tiemposPrimEnMuchos = promedioKruskalSetDeGrafos("prim", grafos);
 			
 			//==============Graficar==============
@@ -136,6 +145,8 @@ public class Principal {
 			ret.append(tiemposBFSEnMuchos+"\n");
 			ret.append("Medicion de Kruskal con UnionFind= ");
 			ret.append(tiemposUnionFindEnMuchos);
+			ret.append("Medicion de Kruskal con UnionFind Path Compression= \n");
+			ret.append(tiemposUnionFindPCEnMuchos);
 			ret.append("Medicion de Prim= ");
 			ret.append(tiemposPrimEnMuchos);
 			
@@ -152,6 +163,11 @@ public class Principal {
 		else if(tipoKruskal.equals("unionfind")) {
 			for (GrafoConPesos grafoConPesos : grafos) {
 				KruskalUnionFind.Kruskal(grafoConPesos);
+			}
+		}
+		else if(tipoKruskal.equals("unionfindpc")) {
+			for (GrafoConPesos grafoConPesos : grafos) {
+				KruskalUnionFindPC.Kruskal(grafoConPesos);
 			}
 		}
 		else if(tipoKruskal.equals("prim")) {
