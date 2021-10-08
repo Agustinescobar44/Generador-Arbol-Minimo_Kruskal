@@ -47,7 +47,6 @@ public class Principal {
 		System.out.println(ret);
 	}
 	
-	
 	public static GrafoConPesos generarGrafoConexo(int n, int m) {
 		GrafoAleatorio a=new GrafoAleatorio();
 		GrafoConPesos grafoGenerado=a.grafoAleatorio(n,m);
@@ -58,12 +57,6 @@ public class Principal {
 		
 		return grafoGenerado;
 	}
-	
-	
-	
-	
-	
-	
 
 	private static void medirEnG(int vertices,int veces,StringBuilder ret) {
 		//==============Generacion del Grafo==============
@@ -95,30 +88,34 @@ public class Principal {
 	public static long promedioKruskalEnGrafo(String tipoKruskal, int veces, GrafoConPesos a) {
 		long inicio = System.currentTimeMillis();
 		tipoKruskal.toLowerCase();
-		if (tipoKruskal.equals("bfs")) {
+		switch (tipoKruskal) {
+		case "bfs":
 			for(int i=0; i<veces ; i++) {
 				KruskalBFS.kruskal(a);
 			}
-		}
-		else if(tipoKruskal.equals("unionfind")) {
+			break;
+			
+		case "unionfind":
 			for(int i=0; i<veces ; i++) {
 				KruskalUnionFind.Kruskal(a);
 			}
-		}
-		else if(tipoKruskal.equals("unionfindpc")) {
+			break;
+			
+		case "unionfindpc":
 			for(int i=0; i<veces ; i++) {
-				KruskalUnionFindPC.Kruskal(a); // el origen siempre sera 0
+				KruskalUnionFindPC.Kruskal(a);
 			}
-		}
-		else if(tipoKruskal.equals("prim")) {
+			break;
+			
+		case "prim":
 			for(int i=0; i<veces ; i++) {
 				Prim.prim(a,0); // el origen siempre sera 0
 			}
-		}
-		else {
+			break;
+
+		default:
 			throw new RuntimeException("El tipo de implementacion de kruskal no es correcto");
 		}
-		
 		long fin = System.currentTimeMillis();
 		long total=(fin-inicio)/veces;
 		
