@@ -5,6 +5,7 @@ import java.util.HashSet;
 public class GrafoConPesos extends Grafo {
 
 	private HashSet<AristaConPeso> aristas;
+	
 	public GrafoConPesos(int i) {
 		super(i);
 		aristas = new HashSet<AristaConPeso>();
