@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /*
-  Representacin con Lista de vecinos
+  Representacion con Lista de vecinos
 */
 public class Grafo 
 {

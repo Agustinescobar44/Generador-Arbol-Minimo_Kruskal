@@ -144,9 +144,9 @@ public class Principal {
 			ret.append("Medicion de Kruskal con BFS= ");
 			ret.append(tiemposBFSEnMuchos+"\n");
 			ret.append("Medicion de Kruskal con UnionFind= ");
-			ret.append(tiemposUnionFindEnMuchos);
-			ret.append("Medicion de Kruskal con UnionFind Path Compression= \n");
-			ret.append(tiemposUnionFindPCEnMuchos);
+			ret.append(tiemposUnionFindEnMuchos + "\n");
+			ret.append("Medicion de Kruskal con UnionFind Path Compression= ");
+			ret.append(tiemposUnionFindPCEnMuchos+ "\n");
 			ret.append("Medicion de Prim= ");
 			ret.append(tiemposPrimEnMuchos);
 			
