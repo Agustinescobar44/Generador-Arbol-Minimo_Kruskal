@@ -9,7 +9,6 @@ import org.junit.Test;
 import estructurasDeDatos.AristaConPeso;
 import estructurasDeDatos.GrafoConPesos;
 import estructurasDeDatos.UnionFind;
-import metodos.KruskalBFS;
 import metodos.KruskalUnionFind;
 
 public class KruskalUnionFindTest {
