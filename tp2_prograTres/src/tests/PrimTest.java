@@ -68,7 +68,7 @@ public class PrimTest {
 	
 	@Test
 	public void testDameAristaMinima() {
-		Set<Integer> verticesContados = new HashSet<>();
+		Set<Integer> verticesContados = new HashSet<Integer>();
 		verticesContados.add(0);
 		g = new GrafoConPesos(3);
 		g.agregarAristaConPeso(0, 1, 150);
@@ -82,7 +82,7 @@ public class PrimTest {
 	
 	@Test
 	public void testNoExisteVerticeVerdadero() {
-		Set<Integer> verticesContados = new HashSet<>();
+		Set<Integer> verticesContados = new HashSet<Integer>();
 		verticesContados.add(0);
 		verticesContados.add(4);
 		
@@ -93,7 +93,7 @@ public class PrimTest {
 	}
 	@Test
 	public void testNoExisteVerticeFalso() {
-		Set<Integer> verticesContados = new HashSet<>();
+		Set<Integer> verticesContados = new HashSet<Integer>();
 		verticesContados.add(0);
 		verticesContados.add(4);
 		
