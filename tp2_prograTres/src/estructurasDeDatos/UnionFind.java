@@ -26,13 +26,5 @@ public class UnionFind {
 		int raizDej=buscarRaiz(j);
 		Raices[raizDei]=raizDej;
 	}
-	
-	public boolean esConexo() {
-		boolean ret=true;
-		for(int indice:this.Raices) {
-			ret= ret && this.buscarRaiz(indice)==this.buscarRaiz(Raices[0]);
-		}
-		return ret;
-	}
 
 }

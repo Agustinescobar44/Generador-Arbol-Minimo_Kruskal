@@ -23,22 +23,6 @@ public class UnionFindTest {
 		assertEquals(unionFind.buscarRaiz(0),unionFind.buscarRaiz(2));
 	}
 
-	@Test
-	public void testEsConexo() {
-		unionFind=new UnionFind(5);
-		unionFind.unir(0, 1);
-		unionFind.unir(1, 2);
-		unionFind.unir(2, 3);
-		unionFind.unir(3, 4);
-		assertTrue(unionFind.esConexo());
-	}
-	
-	@Test
-	public void testNoEsConexo() {
-		unionFind=new UnionFind(3);
-		unionFind.unir(0, 1);
-		assertFalse(unionFind.esConexo());
-	}
 	
 	@Test
 	public void testMismaCompConexa() {
