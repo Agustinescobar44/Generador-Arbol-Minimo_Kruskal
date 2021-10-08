@@ -1,8 +1,6 @@
 package estructurasDeDatos;
 
-import java.util.Collections;
 import java.util.HashSet;
-
 
 public class GrafoConPesos extends Grafo {
 
@@ -36,7 +34,6 @@ public class GrafoConPesos extends Grafo {
 		}
 		return 0;
 	}
-	
 	
 	public HashSet<AristaConPeso> getAristas(){
 		return (HashSet<AristaConPeso>) aristas.clone();
