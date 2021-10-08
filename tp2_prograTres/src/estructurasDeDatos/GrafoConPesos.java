@@ -1,22 +1,22 @@
 package estructurasDeDatos;
 
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Set;
 
 
 public class GrafoConPesos extends Grafo {
 
-	private HashSet<AristaConPeso> aristas;
+	private HashMap<AristaConPeso,Double> aristas;
 	public GrafoConPesos(int i) {
 		super(i);
-		aristas = new HashSet<AristaConPeso>();
+		aristas = new HashMap<>();
 	}
 	
 	public void agregarAristaConPeso(int a , int b , double peso) {
 		AristaConPeso arista = new AristaConPeso(a, b, peso);
 		if(!existeArista(a, b)) {
 			agregarArista(a, b);
-			aristas.add(arista);
+			aristas.put(arista, peso);
 		}
 		else {
 			throw new RuntimeException("La arista ya existe");
@@ -27,23 +27,16 @@ public class GrafoConPesos extends Grafo {
 		if(!existeArista(a, b)) {
 			throw new RuntimeException("La arista no existe en el grafo");
 		}
-
-		for (AristaConPeso arista : aristas) {
-				if((arista.getA() == a && arista.getB() == b)||
-						(arista.getA() == b && arista.getB() == a)) {
-						return arista.getPeso();
-				}
-		}
-		return 0;
+		AristaConPeso ar = new AristaConPeso(a, b, 0);
+		
+		return aristas.get(ar);
 	}
 	
 	
-	public HashSet<AristaConPeso> getAristas(){
-		return (HashSet<AristaConPeso>) aristas.clone();
+	public Set<AristaConPeso> getAristas(){
+		return aristas.keySet();
 	}
 
-	public AristaConPeso getMaxima() {
-		return Collections.max(aristas);
-	}
+
 	
 }
