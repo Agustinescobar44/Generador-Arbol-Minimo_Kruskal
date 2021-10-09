@@ -23,49 +23,25 @@ public class KruskalBFSTest {
 	public void testKruskalEsperado() {
 
 		g = new GrafoConPesos(5);
-		g.agregarAristaConPeso(0, 1, 150);
-		g.agregarAristaConPeso(1, 2, 200);
-		g.agregarAristaConPeso(2, 4, 300);
-		g.agregarAristaConPeso(4, 3, 75);
-		g.agregarAristaConPeso(3, 1,500);
-		g.agregarAristaConPeso(4, 0,100);
+		generarGrafoConexo();
 		
 		Set<AristaConPeso> esperados = new HashSet<AristaConPeso>();
+		aristasEsperadas(esperados);
+		
+		Assert.iguales(esperados , KruskalBFS.kruskal(g));
+	}
+
+	private void aristasEsperadas(Set<AristaConPeso> esperados) {
 		esperados.add(new AristaConPeso(0, 1, 150));
 		esperados.add(new AristaConPeso(1, 2, 200));
 		esperados.add(new AristaConPeso(4, 0, 100));
 		esperados.add(new AristaConPeso(4, 3, 75));
-		
-		Assert.iguales(esperados , KruskalBFS.kruskal(g));
-	}
-	@Test(expected = IllegalArgumentException.class)
-	public void testKruskalGrafoNoConexo() {
-		g = new GrafoConPesos(5);
-		g.agregarAristaConPeso(1, 2, 200);
-		g.agregarAristaConPeso(2, 4, 300);
-		g.agregarAristaConPeso(4, 3, 75);
-		g.agregarAristaConPeso(3, 1,500);
-		KruskalBFS.kruskal(g);
-	}
-	
-	@Test 
-	public void testKruskalGrafoSinAristas() {
-		
-		g = new GrafoConPesos(5);
-		Set<AristaConPeso> esperados = new HashSet<AristaConPeso>();
-		
-		Assert.iguales(esperados, g);
 	}
 	
 	@Test
 	public void testDameMinimaNoConexa() {
 		g = new GrafoConPesos(5);
-		g.agregarAristaConPeso(0, 1, 150);
-		g.agregarAristaConPeso(1, 2, 200);
-		g.agregarAristaConPeso(2, 4, 300);
-		g.agregarAristaConPeso(4, 3, 75);
-		g.agregarAristaConPeso(3, 1,500);
-		g.agregarAristaConPeso(4, 0,100);
+		generarGrafoConexo();
 		
 		Set<AristaConPeso> aristasGrafo = g.getAristas();
 		GrafoConPesos arbol = new GrafoConPesos(5);
@@ -78,6 +54,40 @@ public class KruskalBFSTest {
 		assertEquals(new AristaConPeso(0, 1, 150), KruskalBFS.dameMinimaNoConexa(aristasGrafo,arbol));
 		
 	}
+
+	private void generarGrafoConexo() {
+		g.agregarAristaConPeso(0, 1, 150);
+		g.agregarAristaConPeso(1, 2, 200);
+		g.agregarAristaConPeso(2, 4, 300);
+		g.agregarAristaConPeso(4, 3, 75);
+		g.agregarAristaConPeso(3, 1,500);
+		g.agregarAristaConPeso(4, 0,100);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testKruskalGrafoNoConexo() {
+		g = new GrafoConPesos(5);
+		generarGrafoNoConexo();
+		KruskalBFS.kruskal(g);
+	}
+
+	private void generarGrafoNoConexo() {
+		g.agregarAristaConPeso(1, 2, 200);
+		g.agregarAristaConPeso(2, 4, 300);
+		g.agregarAristaConPeso(4, 3, 75);
+		g.agregarAristaConPeso(3, 1,500);
+	}
+	
+	@Test 
+	public void testKruskalGrafoSinAristas() {
+		
+		g = new GrafoConPesos(5);
+		Set<AristaConPeso> esperados = new HashSet<AristaConPeso>();
+		
+		Assert.iguales(esperados, g);
+	}
+	
+	
 
 	@Test 
 	public void testHaceCircuitoFalso(){
