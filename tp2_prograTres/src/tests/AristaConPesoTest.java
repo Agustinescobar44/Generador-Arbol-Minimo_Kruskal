@@ -19,6 +19,7 @@ public class AristaConPesoTest {
 		AristaConPeso b = new AristaConPeso(0, 1, 2000);
 		assertEquals(-1, a.compareTo(b));
 	}
+	
 	@Test
 	public void testCompareAMayor() {
 		AristaConPeso a = new AristaConPeso(0, 1, 120);
@@ -31,7 +32,13 @@ public class AristaConPesoTest {
 		AristaConPeso b = new AristaConPeso(0, 1, 120);
 		assertEquals(0, a.compareTo(b));
 	}
-
+	@Test
+	public void testCompareBNulo() {
+		AristaConPeso a = new AristaConPeso(0, 1, 120);
+		AristaConPeso b = null;
+		assertEquals(-1, a.compareTo(b));
+	}
+	
 	@Test
 	public void testEqualsVerticesCambiados() {
 		AristaConPeso a = new AristaConPeso(0, 1, 120);
