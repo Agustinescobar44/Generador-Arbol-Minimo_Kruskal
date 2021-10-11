@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import estructurasDeDatos.AristaConPeso;
 
-public class AristaTest {
+public class AristaConPesoTest {
 
 	@Before
 	public void setUp() throws Exception {
